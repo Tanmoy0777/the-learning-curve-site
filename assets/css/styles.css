@@ -34,7 +34,10 @@ body {
   margin: 0;
   font-family: "Manrope", "Sora", system-ui, -apple-system, sans-serif;
   color: var(--ink-1);
-  background: transparent;
+  background: #f7f8fc;
+  background-image: radial-gradient(circle at 10% 20%, rgba(74, 44, 255, 0.08), transparent 40%),
+    radial-gradient(circle at 90% 0%, rgba(33, 184, 166, 0.08), transparent 40%),
+    radial-gradient(circle at 50% 100%, rgba(107, 31, 214, 0.06), transparent 45%);
   min-height: 100vh;
   overflow-x: hidden;
 }
@@ -60,18 +63,6 @@ a {
 
 button {
   font-family: inherit;
-}
-
-#starfield {
-  position: fixed;
-  inset: 0;
-  width: 100vw;
-  height: 100vh;
-  z-index: 0;
-  pointer-events: none;
-  background: radial-gradient(circle at 20% 20%, rgba(34, 55, 120, 0.16), transparent 45%),
-    radial-gradient(circle at 80% 10%, rgba(90, 40, 160, 0.14), transparent 40%),
-    radial-gradient(circle at 60% 90%, rgba(40, 120, 140, 0.1), transparent 45%);
 }
 
 .page {
@@ -516,6 +507,11 @@ button {
   animation: ringFill 1.6s ease forwards;
 }
 
+.ring-progress.static {
+  animation: none;
+  stroke-dashoffset: var(--ring-offset);
+}
+
 .chart-line path {
   stroke-width: 3;
   fill: none;
@@ -527,6 +523,13 @@ button {
 .chart-bars rect {
   transform-origin: bottom;
   animation: barGrow 1.4s ease forwards;
+}
+
+.chart-static path,
+.chart-static rect {
+  animation: none;
+  stroke-dashoffset: 0;
+  transform: scaleY(1);
 }
 
 @keyframes ringFill {

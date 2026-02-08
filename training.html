@@ -10,8 +10,7 @@
   <link rel="stylesheet" href="assets/css/styles.css" />
 </head>
 <body>
-  <canvas id="starfield"></canvas>
-  <div class="page">
+    <div class="page">
     <header class="site-header">
       <div class="container nav-wrap">
         <a class="logo" href="index.html">The Learning Curve</a>
@@ -154,6 +153,51 @@
       </section>
 
       <section class="section">
+        <div class="container">
+          <h2 class="section-title fade-in">Learning journey snapshot</h2>
+          <p class="section-subtitle fade-in">A quick view of how vendor courses map to business outcomes and adoption momentum.</p>
+          <div class="data-blocks">
+            <div class="data-block fade-in">
+              <svg class="data-ring" viewBox="0 0 80 80">
+                <circle class="ring-bg" cx="40" cy="40" r="30"></circle>
+                <circle class="ring-progress static" cx="40" cy="40" r="30" style="--ring-offset: 70; stroke: var(--teal);"></circle>
+              </svg>
+              <div class="data-label">Role coverage</div>
+              <strong data-count="8">0</strong>
+              <div>Mapped roles per learning track.</div>
+            </div>
+            <div class="data-block fade-in">
+              <svg class="data-ring" viewBox="0 0 80 80">
+                <circle class="ring-bg" cx="40" cy="40" r="30"></circle>
+                <circle class="ring-progress static" cx="40" cy="40" r="30" style="--ring-offset: 96; stroke: var(--amber);"></circle>
+              </svg>
+              <div class="data-label">Certification readiness</div>
+              <strong data-count="94" data-suffix="%">0%</strong>
+              <div>Cohorts meeting exam readiness targets.</div>
+            </div>
+            <div class="data-block fade-in">
+              <svg class="data-ring" viewBox="0 0 80 80">
+                <circle class="ring-bg" cx="40" cy="40" r="30"></circle>
+                <circle class="ring-progress static" cx="40" cy="40" r="30" style="--ring-offset: 120; stroke: var(--coral);"></circle>
+              </svg>
+              <div class="data-label">Time-to-value</div>
+              <strong data-count="21" data-suffix=" days">0 days</strong>
+              <div>From kickoff to measurable impact.</div>
+            </div>
+            <div class="data-block fade-in">
+              <svg class="data-ring" viewBox="0 0 80 80">
+                <circle class="ring-bg" cx="40" cy="40" r="30"></circle>
+                <circle class="ring-progress static" cx="40" cy="40" r="30" style="--ring-offset: 88; stroke: var(--teal);"></circle>
+              </svg>
+              <div class="data-label">Adoption velocity</div>
+              <strong data-count="38" data-suffix="%">0%</strong>
+              <div>Faster tool adoption across teams.</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
         <div class="container surface light fade-in">
           <div class="section-banner">
             <div>
@@ -266,7 +310,6 @@
   </div>
 
   <script src="assets/js/data.js"></script>
-  <script src="assets/js/starfield.js"></script>
   <script src="assets/js/stack.js"></script>
   <script src="assets/js/config.js"></script>
   <script src="assets/js/app.js"></script>
