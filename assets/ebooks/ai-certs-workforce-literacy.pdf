@@ -1,55 +1,995 @@
 %PDF-1.4
 1 0 obj << /Type /Catalog /Pages 2 0 R >> endobj
-2 0 obj << /Type /Pages /Kids [3 0 R] /Count 1 >> endobj
-3 0 obj << /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Contents 4 0 R /Resources << /Font << /F1 5 0 R >> >> >> endobj
-4 0 obj << /Length 818 >> stream
+2 0 obj << /Type /Pages /Kids [3 0 R 4 0 R 5 0 R 6 0 R 7 0 R 8 0 R 9 0 R 10 0 R 11 0 R 12 0 R] /Count 10 >> endobj
+3 0 obj << /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Contents 13 0 R /Resources << /Font << /F1 500 0 R /F2 501 0 R >> >> >> endobj
+4 0 obj << /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Contents 14 0 R /Resources << /Font << /F1 500 0 R /F2 501 0 R >> >> >> endobj
+5 0 obj << /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Contents 15 0 R /Resources << /Font << /F1 500 0 R /F2 501 0 R >> >> >> endobj
+6 0 obj << /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Contents 16 0 R /Resources << /Font << /F1 500 0 R /F2 501 0 R >> >> >> endobj
+7 0 obj << /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Contents 17 0 R /Resources << /Font << /F1 500 0 R /F2 501 0 R >> >> >> endobj
+8 0 obj << /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Contents 18 0 R /Resources << /Font << /F1 500 0 R /F2 501 0 R >> >> >> endobj
+9 0 obj << /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Contents 19 0 R /Resources << /Font << /F1 500 0 R /F2 501 0 R >> >> >> endobj
+10 0 obj << /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Contents 20 0 R /Resources << /Font << /F1 500 0 R /F2 501 0 R >> >> >> endobj
+11 0 obj << /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Contents 21 0 R /Resources << /Font << /F1 500 0 R /F2 501 0 R >> >> >> endobj
+12 0 obj << /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Contents 22 0 R /Resources << /Font << /F1 500 0 R /F2 501 0 R >> >> >> endobj
+13 0 obj << /Length 1001 >> stream
+0.043 0.043 0.059 rg
+0 0 612 792 re
+f
+0.071 0.071 0.094 rg
+0 652 612 140 re
+f
+0.867 0.173 0.000 rg
+0 762 612 30 re
+f
+0.961 0.961 0.969 rg
 BT
-/F1 20 Tf
-72 730 Td
+/F2 24 Tf
+54 702 Td
 (AI Certs for Workforce Literacy) Tj
+ET
+0.824 0.824 0.855 rg
+BT
 /F1 12 Tf
-0 -24 Td
+54 672 Td
 (Enterprise-wide AI fluency for every business unit) Tj
-0 -20 Td
-(EXECUTIVE SUMMARY) Tj
-0 -14 Td
-(Executive summary: create a shared AI language across the org.) Tj
-0 -14 Td
-0 -10 Td
-(KEY USE CASES) Tj
-0 -14 Td
-(Use cases: prompt engineering, AI risk awareness, copilots in daily work.) Tj
-0 -14 Td
-0 -10 Td
-(LEARNING PATHWAY) Tj
-0 -14 Td
-(Learning pathway: AI foundations, LLM literacy, ethical AI modules.) Tj
-0 -14 Td
-0 -10 Td
-(MEASUREMENT) Tj
-0 -14 Td
-(KPIs to track: completion rate, AI adoption, productivity lift.) Tj
-0 -14 Td
-0 -10 Td
-(90-DAY LAUNCH) Tj
-0 -14 Td
-(90-day launch: role-based tracks, live labs, leadership alignment.) Tj
-0 -14 Td
-0 -10 Td
-(Prepared by The Learning Curve | keep learning, keep growing) Tj
-0 -14 Td
+ET
+0.659 0.659 0.710 rg
+BT
+/F1 11 Tf
+54 632 Td
+(AI Certs | Enterprise Workforce) Tj
+ET
+0.867 0.173 0.000 rg
+54 558 504 24 re
+f
+0.961 0.961 0.969 rg
+BT
+/F2 12 Tf
+66 564 Td
+(What you will gain) Tj
+ET
+0.824 0.824 0.855 rg
+BT
+/F1 11 Tf
+54 540 Td
+(• Build AI fluency across the enterprise) Tj
+ET
+0.824 0.824 0.855 rg
+BT
+/F1 11 Tf
+54 525.15 Td
+(• Accelerate adoption with role-based learning) Tj
+ET
+0.824 0.824 0.855 rg
+BT
+/F1 11 Tf
+54 510.29999999999995 Td
+(• Reduce AI risk with responsible AI training) Tj
+ET
+0.867 0.173 0.000 rg
+54 90 504 2 re
+f
+0.961 0.961 0.969 rg
+BT
+/F2 12 Tf
+54 60 Td
+(The Learning Curve) Tj
+ET
+0.659 0.659 0.710 rg
+BT
+/F1 10 Tf
+54 42 Td
+(Keep learning, keep growing.) Tj
 ET
 endstream endobj
-5 0 obj << /Type /Font /Subtype /Type1 /BaseFont /Helvetica >> endobj
+14 0 obj << /Length 1186 >> stream
+0.043 0.043 0.059 rg
+0 0 612 792 re
+f
+0.867 0.173 0.000 rg
+54 714 504 24 re
+f
+0.961 0.961 0.969 rg
+BT
+/F2 12 Tf
+66 720 Td
+(Executive summary) Tj
+ET
+0.824 0.824 0.855 rg
+BT
+/F1 11 Tf
+54 696 Td
+(AI is moving into every business function, but most employees lack shared) Tj
+ET
+0.824 0.824 0.855 rg
+BT
+/F1 11 Tf
+54 680.6 Td
+(language and confidence. AI Certs provides role-based learning to build workforce) Tj
+ET
+0.824 0.824 0.855 rg
+BT
+/F1 11 Tf
+54 665.2 Td
+(readiness quickly.) Tj
+ET
+0.824 0.824 0.855 rg
+BT
+/F1 11 Tf
+54 645.4000000000001 Td
+(This playbook outlines how to design a scalable AI literacy initiative that) Tj
+ET
+0.824 0.824 0.855 rg
+BT
+/F1 11 Tf
+54 630.0000000000001 Td
+(aligns with business priorities and governance expectations.) Tj
+ET
+0.867 0.173 0.000 rg
+54 586.2000000000002 504 24 re
+f
+0.961 0.961 0.969 rg
+BT
+/F2 12 Tf
+66 592.2000000000002 Td
+(Outcome focus) Tj
+ET
+0.824 0.824 0.855 rg
+BT
+/F1 11 Tf
+54 568.2000000000002 Td
+(• Higher AI adoption rates) Tj
+ET
+0.824 0.824 0.855 rg
+BT
+/F1 11 Tf
+54 553.3500000000001 Td
+(• Reduced AI risk exposure) Tj
+ET
+0.824 0.824 0.855 rg
+BT
+/F1 11 Tf
+54 538.5000000000001 Td
+(• Improved productivity in core workflows) Tj
+ET
+endstream endobj
+15 0 obj << /Length 2265 >> stream
+0.043 0.043 0.059 rg
+0 0 612 792 re
+f
+0.867 0.173 0.000 rg
+54 714 504 24 re
+f
+0.961 0.961 0.969 rg
+BT
+/F2 12 Tf
+66 720 Td
+(Market signals) Tj
+ET
+0.824 0.824 0.855 rg
+BT
+/F1 11 Tf
+54 696 Td
+(Enterprise learning leaders are investing in AI fluency, cloud modernization, and) Tj
+ET
+0.824 0.824 0.855 rg
+BT
+/F1 11 Tf
+54 680.6 Td
+(governance readiness. These signals frame the urgency and scale of adoption) Tj
+ET
+0.824 0.824 0.855 rg
+BT
+/F1 11 Tf
+54 665.2 Td
+(across industries.) Tj
+ET
+0.824 0.824 0.855 rg
+BT
+/F1 10 Tf
+54 645.4000000000001 Td
+(• 60% — of workers require training by 2027) Tj
+ET
+0.824 0.824 0.855 rg
+BT
+/F1 10 Tf
+54 631.9000000000001 Td
+(• 44% — of worker skills will be disrupted in the next five years) Tj
+ET
+0.824 0.824 0.855 rg
+BT
+/F1 10 Tf
+54 618.4000000000001 Td
+(• 78% — of organizations use AI in at least one function) Tj
+ET
+0.824 0.824 0.855 rg
+BT
+/F1 10 Tf
+54 604.9000000000001 Td
+(• 71% — of organizations use generative AI in at least one function) Tj
+ET
+0.824 0.824 0.855 rg
+BT
+/F1 10 Tf
+54 591.4000000000001 Td
+(• $675B — public cloud spend forecast in 2024) Tj
+ET
+0.824 0.824 0.855 rg
+BT
+/F1 10 Tf
+54 577.9000000000001 Td
+(• $4.88M — average cost of a data breach) Tj
+ET
+0.090 0.090 0.133 rg
+0.090 0.090 0.133 RG
+1 w
+54 230 504 140 re
+B
+0.867 0.173 0.000 rg
+84.0 230 53.0 112.0 re
+f
+0.659 0.659 0.710 rg
+BT
+/F1 9 Tf
+84.0 214 Td
+(AI) Tj
+ET
+0.824 0.824 0.855 rg
+BT
+/F1 9 Tf
+84.0 348.0 Td
+(80%) Tj
+ET
+0.867 0.173 0.000 rg
+190.0 230 53.0 95.2 re
+f
+0.659 0.659 0.710 rg
+BT
+/F1 9 Tf
+190.0 214 Td
+(Cloud) Tj
+ET
+0.824 0.824 0.855 rg
+BT
+/F1 9 Tf
+190.0 331.2 Td
+(68%) Tj
+ET
+0.867 0.173 0.000 rg
+296.0 230 53.0 78.4 re
+f
+0.659 0.659 0.710 rg
+BT
+/F1 9 Tf
+296.0 214 Td
+(Security) Tj
+ET
+0.824 0.824 0.855 rg
+BT
+/F1 9 Tf
+296.0 314.4 Td
+(56%) Tj
+ET
+0.867 0.173 0.000 rg
+402.0 230 53.0 61.6 re
+f
+0.659 0.659 0.710 rg
+BT
+/F1 9 Tf
+402.0 214 Td
+(Data) Tj
+ET
+0.824 0.824 0.855 rg
+BT
+/F1 9 Tf
+402.0 297.6 Td
+(44%) Tj
+ET
+0.961 0.961 0.969 rg
+BT
+/F2 11 Tf
+54 200 Td
+(Implication) Tj
+ET
+0.824 0.824 0.855 rg
+BT
+/F1 11 Tf
+54 561.4000000000001 Td
+(Leadership teams need a measurable learning plan that balances speed, governance,) Tj
+ET
+0.824 0.824 0.855 rg
+BT
+/F1 11 Tf
+54 546.0000000000001 Td
+(and adoption across the enterprise.) Tj
+ET
+endstream endobj
+16 0 obj << /Length 737 >> stream
+0.043 0.043 0.059 rg
+0 0 612 792 re
+f
+0.867 0.173 0.000 rg
+54 714 504 24 re
+f
+0.961 0.961 0.969 rg
+BT
+/F2 12 Tf
+66 720 Td
+(Strategic use cases) Tj
+ET
+0.824 0.824 0.855 rg
+BT
+/F1 11 Tf
+54 696 Td
+(We prioritize initiatives that deliver executive visibility, measurable value,) Tj
+ET
+0.824 0.824 0.855 rg
+BT
+/F1 11 Tf
+54 680.6 Td
+(and rapid adoption.) Tj
+ET
+0.824 0.824 0.855 rg
+BT
+/F1 11 Tf
+54 660.8000000000001 Td
+(• AI literacy for sales, marketing, and ops) Tj
+ET
+0.824 0.824 0.855 rg
+BT
+/F1 11 Tf
+54 645.95 Td
+(• Prompt engineering enablement) Tj
+ET
+0.824 0.824 0.855 rg
+BT
+/F1 11 Tf
+54 631.1 Td
+(• Responsible AI policy awareness) Tj
+ET
+0.824 0.824 0.855 rg
+BT
+/F1 11 Tf
+54 616.25 Td
+(• AI-assisted workflow automation) Tj
+ET
+endstream endobj
+17 0 obj << /Length 1598 >> stream
+0.043 0.043 0.059 rg
+0 0 612 792 re
+f
+0.867 0.173 0.000 rg
+54 714 504 24 re
+f
+0.961 0.961 0.969 rg
+BT
+/F2 12 Tf
+66 720 Td
+(Capability map) Tj
+ET
+0.071 0.071 0.094 rg
+0.090 0.090 0.133 RG
+1 w
+54.0 476 160.0 220 re
+B
+0.961 0.961 0.969 rg
+BT
+/F2 11 Tf
+66.0 672 Td
+(People) Tj
+ET
+0.824 0.824 0.855 rg
+BT
+/F1 9.5 Tf
+66.0 650 Td
+(• L&D leaders) Tj
+ET
+0.824 0.824 0.855 rg
+BT
+/F1 9.5 Tf
+66.0 636 Td
+(• Business unit leaders) Tj
+ET
+0.824 0.824 0.855 rg
+BT
+/F1 9.5 Tf
+66.0 622 Td
+(• AI champions) Tj
+ET
+0.071 0.071 0.094 rg
+0.090 0.090 0.133 RG
+1 w
+226.0 476 160.0 220 re
+B
+0.961 0.961 0.969 rg
+BT
+/F2 11 Tf
+238.0 672 Td
+(Process) Tj
+ET
+0.824 0.824 0.855 rg
+BT
+/F1 9.5 Tf
+238.0 650 Td
+(• Role-based learning) Tj
+ET
+0.824 0.824 0.855 rg
+BT
+/F1 9.5 Tf
+238.0 636 Td
+(• AI usage guidelines) Tj
+ET
+0.824 0.824 0.855 rg
+BT
+/F1 9.5 Tf
+238.0 622 Td
+(• Change communications) Tj
+ET
+0.071 0.071 0.094 rg
+0.090 0.090 0.133 RG
+1 w
+398.0 476 160.0 220 re
+B
+0.961 0.961 0.969 rg
+BT
+/F2 11 Tf
+410.0 672 Td
+(Platform) Tj
+ET
+0.824 0.824 0.855 rg
+BT
+/F1 9.5 Tf
+410.0 650 Td
+(• AI Certs curriculum) Tj
+ET
+0.824 0.824 0.855 rg
+BT
+/F1 9.5 Tf
+410.0 636 Td
+(• Live instructor-led labs) Tj
+ET
+0.824 0.824 0.855 rg
+BT
+/F1 9.5 Tf
+410.0 622 Td
+(• Assessment engine) Tj
+ET
+0.867 0.173 0.000 rg
+54 428 504 24 re
+f
+0.961 0.961 0.969 rg
+BT
+/F2 12 Tf
+66 434 Td
+(Vendor accelerators) Tj
+ET
+0.824 0.824 0.855 rg
+BT
+/F1 10 Tf
+54 410 Td
+(• AI skills baseline) Tj
+ET
+0.824 0.824 0.855 rg
+BT
+/F1 10 Tf
+54 396.5 Td
+(• Prompt libraries) Tj
+ET
+0.824 0.824 0.855 rg
+BT
+/F1 10 Tf
+54 383.0 Td
+(• Responsible AI toolkits) Tj
+ET
+endstream endobj
+18 0 obj << /Length 1336 >> stream
+0.043 0.043 0.059 rg
+0 0 612 792 re
+f
+0.867 0.173 0.000 rg
+54 714 504 24 re
+f
+0.961 0.961 0.969 rg
+BT
+/F2 12 Tf
+66 720 Td
+(Learning pathway) Tj
+ET
+0.824 0.824 0.855 rg
+BT
+/F1 11 Tf
+54 696 Td
+(A structured pathway ensures executives, leaders, and practitioners move in) Tj
+ET
+0.824 0.824 0.855 rg
+BT
+/F1 11 Tf
+54 680.6 Td
+(lockstep.) Tj
+ET
+0.071 0.071 0.094 rg
+0.090 0.090 0.133 RG
+1 w
+54 580.8000000000001 504 80 re
+B
+0.961 0.961 0.969 rg
+BT
+/F2 11 Tf
+68 634.8000000000001 Td
+(Phase 1: Baseline) Tj
+ET
+0.824 0.824 0.855 rg
+BT
+/F1 10 Tf
+68 614.8000000000001 Td
+(Assess AI fluency and gaps) Tj
+ET
+0.659 0.659 0.710 rg
+BT
+/F1 9.5 Tf
+68 594.8000000000001 Td
+(Weeks 1-2) Tj
+ET
+0.071 0.071 0.094 rg
+0.090 0.090 0.133 RG
+1 w
+54 486.80000000000007 504 80 re
+B
+0.961 0.961 0.969 rg
+BT
+/F2 11 Tf
+68 540.8000000000001 Td
+(Phase 2: Enable) Tj
+ET
+0.824 0.824 0.855 rg
+BT
+/F1 10 Tf
+68 520.8000000000001 Td
+(Role-based AI Certs cohorts) Tj
+ET
+0.659 0.659 0.710 rg
+BT
+/F1 9.5 Tf
+68 500.80000000000007 Td
+(Weeks 3-6) Tj
+ET
+0.071 0.071 0.094 rg
+0.090 0.090 0.133 RG
+1 w
+54 392.80000000000007 504 80 re
+B
+0.961 0.961 0.969 rg
+BT
+/F2 11 Tf
+68 446.80000000000007 Td
+(Phase 3: Adopt) Tj
+ET
+0.824 0.824 0.855 rg
+BT
+/F1 10 Tf
+68 426.80000000000007 Td
+(Embed AI in workflows) Tj
+ET
+0.659 0.659 0.710 rg
+BT
+/F1 9.5 Tf
+68 406.80000000000007 Td
+(Weeks 7-12) Tj
+ET
+endstream endobj
+19 0 obj << /Length 1886 >> stream
+0.043 0.043 0.059 rg
+0 0 612 792 re
+f
+0.867 0.173 0.000 rg
+54 714 504 24 re
+f
+0.961 0.961 0.969 rg
+BT
+/F2 12 Tf
+66 720 Td
+(Cohort design) Tj
+ET
+0.824 0.824 0.855 rg
+BT
+/F1 11 Tf
+54 696 Td
+(Role-based tracks ensure that leaders, managers, and practitioners receive the) Tj
+ET
+0.824 0.824 0.855 rg
+BT
+/F1 11 Tf
+54 680.6 Td
+(right depth of enablement.) Tj
+ET
+0.071 0.071 0.094 rg
+0.090 0.090 0.133 RG
+1 w
+54 510.80000000000007 504 150 re
+B
+0.961 0.961 0.969 rg
+BT
+/F2 11 Tf
+68 632.8000000000001 Td
+(Executives) Tj
+ET
+0.824 0.824 0.855 rg
+BT
+/F1 10 Tf
+68 612.8000000000001 Td
+(Governance, policy, and ROI) Tj
+ET
+0.659 0.659 0.710 rg
+BT
+/F1 9.5 Tf
+76 590.8000000000001 Td
+(• AI strategy) Tj
+ET
+0.659 0.659 0.710 rg
+BT
+/F1 9.5 Tf
+76 576.8000000000001 Td
+(• Responsible AI) Tj
+ET
+0.659 0.659 0.710 rg
+BT
+/F1 9.5 Tf
+76 562.8000000000001 Td
+(• KPI design) Tj
+ET
+0.071 0.071 0.094 rg
+0.090 0.090 0.133 RG
+1 w
+54 344.80000000000007 504 150 re
+B
+0.961 0.961 0.969 rg
+BT
+/F2 11 Tf
+68 466.80000000000007 Td
+(Managers) Tj
+ET
+0.824 0.824 0.855 rg
+BT
+/F1 10 Tf
+68 446.80000000000007 Td
+(Workflow adoption and enablement) Tj
+ET
+0.659 0.659 0.710 rg
+BT
+/F1 9.5 Tf
+76 424.80000000000007 Td
+(• AI productivity) Tj
+ET
+0.659 0.659 0.710 rg
+BT
+/F1 9.5 Tf
+76 410.80000000000007 Td
+(• Prompt engineering) Tj
+ET
+0.659 0.659 0.710 rg
+BT
+/F1 9.5 Tf
+76 396.80000000000007 Td
+(• Change management) Tj
+ET
+0.071 0.071 0.094 rg
+0.090 0.090 0.133 RG
+1 w
+54 178.80000000000007 504 150 re
+B
+0.961 0.961 0.969 rg
+BT
+/F2 11 Tf
+68 300.80000000000007 Td
+(Practitioners) Tj
+ET
+0.824 0.824 0.855 rg
+BT
+/F1 10 Tf
+68 280.80000000000007 Td
+(Hands-on AI usage) Tj
+ET
+0.659 0.659 0.710 rg
+BT
+/F1 9.5 Tf
+76 258.80000000000007 Td
+(• AI fundamentals) Tj
+ET
+0.659 0.659 0.710 rg
+BT
+/F1 9.5 Tf
+76 244.80000000000007 Td
+(• Prompt labs) Tj
+ET
+0.659 0.659 0.710 rg
+BT
+/F1 9.5 Tf
+76 230.80000000000007 Td
+(• AI safety) Tj
+ET
+endstream endobj
+20 0 obj << /Length 1272 >> stream
+0.043 0.043 0.059 rg
+0 0 612 792 re
+f
+0.867 0.173 0.000 rg
+54 714 504 24 re
+f
+0.961 0.961 0.969 rg
+BT
+/F2 12 Tf
+66 720 Td
+(90-day activation plan) Tj
+ET
+0.824 0.824 0.855 rg
+BT
+/F1 11 Tf
+54 696 Td
+(A focused 90-day plan connects strategy, learning, and deployment milestones.) Tj
+ET
+0.071 0.071 0.094 rg
+0.090 0.090 0.133 RG
+1 w
+54 596.2 504 80 re
+B
+0.961 0.961 0.969 rg
+BT
+/F2 11 Tf
+68 650.2 Td
+(Weeks 1-2: Diagnose) Tj
+ET
+0.824 0.824 0.855 rg
+BT
+/F1 10 Tf
+68 630.2 Td
+(AI skills baseline and priority roles) Tj
+ET
+0.659 0.659 0.710 rg
+BT
+/F1 9.5 Tf
+68 612.2 Td
+(Skills heatmap) Tj
+ET
+0.071 0.071 0.094 rg
+0.090 0.090 0.133 RG
+1 w
+54 504.20000000000005 504 80 re
+B
+0.961 0.961 0.969 rg
+BT
+/F2 11 Tf
+68 558.2 Td
+(Weeks 3-6: Enable) Tj
+ET
+0.824 0.824 0.855 rg
+BT
+/F1 10 Tf
+68 538.2 Td
+(Cohort learning and labs) Tj
+ET
+0.659 0.659 0.710 rg
+BT
+/F1 9.5 Tf
+68 520.2 Td
+(Completion reports, prompts library) Tj
+ET
+0.071 0.071 0.094 rg
+0.090 0.090 0.133 RG
+1 w
+54 412.20000000000005 504 80 re
+B
+0.961 0.961 0.969 rg
+BT
+/F2 11 Tf
+68 466.20000000000005 Td
+(Weeks 7-12: Embed) Tj
+ET
+0.824 0.824 0.855 rg
+BT
+/F1 10 Tf
+68 446.20000000000005 Td
+(Workflow adoption and measurement) Tj
+ET
+0.659 0.659 0.710 rg
+BT
+/F1 9.5 Tf
+68 428.20000000000005 Td
+(Adoption dashboard, ROI story) Tj
+ET
+endstream endobj
+21 0 obj << /Length 670 >> stream
+0.043 0.043 0.059 rg
+0 0 612 792 re
+f
+0.867 0.173 0.000 rg
+54 714 504 24 re
+f
+0.961 0.961 0.969 rg
+BT
+/F2 12 Tf
+66 720 Td
+(KPI scorecard) Tj
+ET
+0.824 0.824 0.855 rg
+BT
+/F1 11 Tf
+54 696 Td
+(Track adoption, performance, and business impact with a consistent scorecard.) Tj
+ET
+0.824 0.824 0.855 rg
+BT
+/F1 10 Tf
+54 676.2 Td
+(• AI literacy score) Tj
+ET
+0.824 0.824 0.855 rg
+BT
+/F1 10 Tf
+54 662.7 Td
+(• Prompt usage rate) Tj
+ET
+0.824 0.824 0.855 rg
+BT
+/F1 10 Tf
+54 649.2 Td
+(• Productivity lift) Tj
+ET
+0.824 0.824 0.855 rg
+BT
+/F1 10 Tf
+54 635.7 Td
+(• Responsible AI compliance) Tj
+ET
+0.824 0.824 0.855 rg
+BT
+/F1 10 Tf
+54 622.2 Td
+(• Adoption by business unit) Tj
+ET
+endstream endobj
+22 0 obj << /Length 2242 >> stream
+0.043 0.043 0.059 rg
+0 0 612 792 re
+f
+0.867 0.173 0.000 rg
+54 714 504 24 re
+f
+0.961 0.961 0.969 rg
+BT
+/F2 12 Tf
+66 720 Td
+(Sources) Tj
+ET
+0.824 0.824 0.855 rg
+BT
+/F1 9.5 Tf
+54 696 Td
+(• World Economic Forum, Future of Jobs 2023: https://www.weforum.org/publications/the-future-) Tj
+ET
+0.824 0.824 0.855 rg
+BT
+/F1 9.5 Tf
+54 683.175 Td
+(of-jobs-report-2023/digest/) Tj
+ET
+0.824 0.824 0.855 rg
+BT
+/F1 9.5 Tf
+54 670.3499999999999 Td
+(• McKinsey, State of AI 2024: https://www.mckinsey.com/capabilities/quantumblack/our-) Tj
+ET
+0.824 0.824 0.855 rg
+BT
+/F1 9.5 Tf
+54 657.5249999999999 Td
+(insights/the-state-of-ai) Tj
+ET
+0.824 0.824 0.855 rg
+BT
+/F1 9.5 Tf
+54 644.6999999999998 Td
+(• Gartner, Worldwide Public Cloud End-User Spending 2024-2025:) Tj
+ET
+0.824 0.824 0.855 rg
+BT
+/F1 9.5 Tf
+54 631.8749999999998 Td
+(https://www.gartner.com/en/newsroom/press-releases/2024-04-03-gartner-forecasts-worldwide-) Tj
+ET
+0.824 0.824 0.855 rg
+BT
+/F1 9.5 Tf
+54 619.0499999999997 Td
+(public-cloud-end-user-spending-to-reach-675-billion-in-2024) Tj
+ET
+0.824 0.824 0.855 rg
+BT
+/F1 9.5 Tf
+54 606.2249999999997 Td
+(• IBM, Cost of a Data Breach 2024: https://www.ibm.com/reports/data-breach) Tj
+ET
+0.824 0.824 0.855 rg
+BT
+/F1 9.5 Tf
+54 593.3999999999996 Td
+(• PwC, 2025 AI Jobs Barometer: https://www.pwc.com/gx/en/issues/artificial-intelligence/ai-) Tj
+ET
+0.824 0.824 0.855 rg
+BT
+/F1 9.5 Tf
+54 580.5749999999996 Td
+(jobs-barometer.html) Tj
+ET
+0.867 0.173 0.000 rg
+54 540.8999999999995 504 24 re
+f
+0.961 0.961 0.969 rg
+BT
+/F2 12 Tf
+66 546.8999999999995 Td
+(How The Learning Curve helps) Tj
+ET
+0.824 0.824 0.855 rg
+BT
+/F1 11 Tf
+54 522.8999999999995 Td
+(The Learning Curve designs instructor-led programs that map directly to business) Tj
+ET
+0.824 0.824 0.855 rg
+BT
+/F1 11 Tf
+54 507.49999999999955 Td
+(outcomes. We blend vendor-authorized content with custom labs, coaching, and) Tj
+ET
+0.824 0.824 0.855 rg
+BT
+/F1 11 Tf
+54 492.09999999999957 Td
+(readiness metrics so your teams can adopt faster and scale safely.) Tj
+ET
+0.824 0.824 0.855 rg
+BT
+/F1 10 Tf
+54 472.2999999999996 Td
+(Ready to build a tailored learning journey? Contact us at thelearningcurve.ai or visit) Tj
+ET
+0.824 0.824 0.855 rg
+BT
+/F1 10 Tf
+54 458.2999999999996 Td
+(thelearningcurve.ai.) Tj
+ET
+endstream endobj
+500 0 obj << /Type /Font /Subtype /Type1 /BaseFont /Helvetica >> endobj
+501 0 obj << /Type /Font /Subtype /Type1 /BaseFont /Helvetica-Bold >> endobj
 xref
-0 6
+0 25
 0000000000 65535 f 
 0000000009 00000 n 
 0000000058 00000 n 
-0000000115 00000 n 
-0000000241 00000 n 
-0000001109 00000 n 
-trailer << /Size 6 /Root 1 0 R >>
+0000000173 00000 n 
+0000000314 00000 n 
+0000000455 00000 n 
+0000000596 00000 n 
+0000000737 00000 n 
+0000000878 00000 n 
+0000001019 00000 n 
+0000001160 00000 n 
+0000001302 00000 n 
+0000001444 00000 n 
+0000001586 00000 n 
+0000002639 00000 n 
+0000003877 00000 n 
+0000006194 00000 n 
+0000006982 00000 n 
+0000008632 00000 n 
+0000010020 00000 n 
+0000011958 00000 n 
+0000013282 00000 n 
+0000014003 00000 n 
+0000016297 00000 n 
+0000016369 00000 n 
+trailer << /Size 25 /Root 1 0 R >>
 startxref
-1179
+16446
 %%EOF
