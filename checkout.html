@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Checkout | The Learning Curve</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Sora:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/css/styles.css" />
+</head>
+<body>
+  <canvas id="starfield"></canvas>
+  <div class="page">
+    <header class="site-header">
+      <div class="container nav-wrap">
+        <a class="logo" href="index.html">The Learning Curve</a>
+        <nav class="nav">
+          <a href="index.html">Home</a>
+          <div class="dropdown">
+            <button data-dropdown-toggle>Training</button>
+            <div class="dropdown-menu">
+              <a href="microsoft.html">Microsoft</a>
+              <a href="google.html">Google Cloud</a>
+              <a href="aws.html">AWS</a>
+              <a href="cisco.html">Cisco</a>
+              <a href="pmi.html">PMI</a>
+              <a href="ai-certs.html">AI Certs</a>
+              <a href="adoptify-ai.html">Adoptify AI</a>
+            </div>
+          </div>
+          <a href="solutions.html">Solutions</a>
+          <a href="pricing.html">Pricing</a>
+          <a href="passport.html">Passport</a>
+          <a href="about.html">About</a>
+          <a href="contact.html">Contact</a>
+        </nav>
+        <div class="nav-cta">
+          <a class="btn btn-ghost" href="contact.html">Talk to Sales</a>
+          <a class="btn btn-primary" href="cart.html">Cart <span class="cart-count" data-cart-count>0</span></a>
+        </div>
+        <button class="nav-toggle" data-nav-toggle aria-label="Toggle navigation">☰</button>
+      </div>
+    </header>
+
+    <main>
+      <section class="section">
+        <div class="container">
+          <h1 class="section-title fade-in">Checkout</h1>
+          <div class="cards-grid">
+            <div class="surface light fade-in">
+              <h2>Order summary</h2>
+              <div data-checkout-summary></div>
+              <div class="surface" style="margin-top: 16px; display: flex; justify-content: space-between;">
+                <strong>Total</strong>
+                <strong data-checkout-total>$0</strong>
+              </div>
+            </div>
+            <div class="surface fade-in">
+              <h2>Billing details</h2>
+              <form class="form-grid" data-checkout-form data-lead-type="checkout">
+                <input type="text" name="full_name" placeholder="Full name" required />
+                <input type="email" name="email" placeholder="Work email" required />
+                <input type="text" name="company" placeholder="Company" required />
+                <input type="text" name="billing_address" placeholder="Billing address" required />
+                <select name="delivery" required>
+                  <option value="">Preferred delivery</option>
+                  <option>Live online cohort</option>
+                  <option>On-site cohort</option>
+                  <option>Hybrid</option>
+                </select>
+                <button class="btn btn-primary" type="submit">Place order</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="container footer-grid">
+        <div>
+          <strong>The Learning Curve</strong>
+          <p>US-based enterprise learning partner focused on customizable, instructor-led outcomes.</p>
+        </div>
+        <div>
+          <strong>Training</strong>
+          <a href="microsoft.html">Microsoft</a><br />
+          <a href="google.html">Google Cloud</a><br />
+          <a href="aws.html">AWS</a><br />
+          <a href="cisco.html">Cisco</a><br />
+          <a href="pmi.html">PMI</a>
+        </div>
+        <div>
+          <strong>Programs</strong>
+          <a href="ai-certs.html">AI Certs</a><br />
+          <a href="adoptify-ai.html">Adoptify AI</a><br />
+          <a href="passport.html">Trajectory Passport</a>
+        </div>
+        <div>
+          <strong>Company</strong>
+          <a href="about.html">About</a><br />
+          <a href="contact.html">Contact</a><br />
+          <a href="pricing.html">Pricing</a>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <script src="assets/js/data.js"></script>
+  <script src="assets/js/starfield.js"></script>
+  <script src="assets/js/stack.js"></script>
+  <script src="assets/js/config.js"></script>
+  <script src="assets/js/app.js"></script>
+</body>
+</html>

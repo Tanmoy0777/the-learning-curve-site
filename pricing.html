@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pricing | The Learning Curve</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Sora:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/css/styles.css" />
+</head>
+<body>
+  <canvas id="starfield"></canvas>
+  <div class="page">
+    <header class="site-header">
+      <div class="container nav-wrap">
+        <a class="logo" href="index.html">The Learning Curve</a>
+        <nav class="nav">
+          <a href="index.html">Home</a>
+          <div class="dropdown">
+            <button data-dropdown-toggle>Training</button>
+            <div class="dropdown-menu">
+              <a href="microsoft.html">Microsoft</a>
+              <a href="google.html">Google Cloud</a>
+              <a href="aws.html">AWS</a>
+              <a href="cisco.html">Cisco</a>
+              <a href="pmi.html">PMI</a>
+              <a href="ai-certs.html">AI Certs</a>
+              <a href="adoptify-ai.html">Adoptify AI</a>
+            </div>
+          </div>
+          <a href="solutions.html">Solutions</a>
+          <a href="pricing.html">Pricing</a>
+          <a href="passport.html">Passport</a>
+          <a href="about.html">About</a>
+          <a href="contact.html">Contact</a>
+        </nav>
+        <div class="nav-cta">
+          <a class="btn btn-ghost" href="contact.html">Talk to Sales</a>
+          <a class="btn btn-primary" href="cart.html">Cart <span class="cart-count" data-cart-count>0</span></a>
+        </div>
+        <button class="nav-toggle" data-nav-toggle aria-label="Toggle navigation">☰</button>
+      </div>
+    </header>
+
+    <main>
+      <section class="section">
+        <div class="container hero">
+          <div class="fade-in">
+            <span class="badge">Flexible enterprise pricing</span>
+            <h1>Transparent pricing for enterprise programs and individual certifications.</h1>
+            <p>Choose the model that best fits your organization: custom enterprise programs, AI Certs subscriptions, or the Trajectory Passport.</p>
+            <div class="hero-actions">
+              <a class="btn btn-primary" href="contact.html">Get a custom quote</a>
+              <a class="btn btn-ghost" href="passport.html">Explore the Passport</a>
+            </div>
+          </div>
+          <div class="dashboard fade-in">
+            <div class="dashboard-inner">
+              <h3>Pricing Flexibility Index</h3>
+              <p style="margin: 0; color: var(--ink-3);">Mix subscriptions and enterprise programs.</p>
+              <svg class="chart-line" width="100%" height="140" viewBox="0 0 420 140">
+                <defs>
+                  <linearGradient id="grad-line-price" x1="0" x2="1" y1="0" y2="1">
+                    <stop offset="0%" stop-color="#3f5efb" />
+                    <stop offset="100%" stop-color="#6b1fd6" />
+                  </linearGradient>
+                </defs>
+                <path d="M10 115 C90 35, 160 150, 240 70 C320 20, 360 90, 410 45" stroke="url(#grad-line-price)" />
+              </svg>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container">
+          <h2 class="section-title fade-in">Enterprise program pricing</h2>
+          <p class="section-subtitle fade-in">Designed for leadership teams that need custom enablement with measurable ROI.</p>
+          <div class="cards-grid">
+            <article class="course-card fade-in">
+              <div class="tag">Enterprise</div>
+              <h3>Custom Enterprise Cohort</h3>
+              <p>Tailored vendor curriculum, live facilitation, KPI dashboards, and executive reporting.</p>
+              <div class="price">From $18,000</div>
+              <a class="btn btn-primary" href="contact.html">Request a proposal</a>
+            </article>
+            <article class="course-card fade-in">
+              <div class="tag">Enterprise+</div>
+              <h3>Multi-Region Enablement</h3>
+              <p>Global delivery with regional scheduling, translated materials, and extended analytics.</p>
+              <div class="price">From $38,000</div>
+              <a class="btn btn-primary" href="contact.html">Request a proposal</a>
+            </article>
+            <article class="course-card fade-in">
+              <div class="tag">Executive</div>
+              <h3>Adoptify AI Executive Sprint</h3>
+              <p>90-day AI adoption roadmap, governance, and executive enablement.</p>
+              <div class="price">From $24,000</div>
+              <a class="btn btn-primary" href="contact.html">Talk to Adoptify AI</a>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container">
+          <h2 class="section-title fade-in">AI Certs subscriptions</h2>
+          <p class="section-subtitle fade-in">Ideal for individual learners and small teams.</p>
+          <div class="cards-grid">
+            <article class="course-card fade-in">
+              <div class="tag">Individual</div>
+              <h3>AI Certs Starter</h3>
+              <p>Access to core AI foundations and prompt engineering courses.</p>
+              <div class="price">$49 / month</div>
+              <a class="btn btn-primary" href="ai-certs.html">Start learning</a>
+            </article>
+            <article class="course-card fade-in">
+              <div class="tag">Professional</div>
+              <h3>AI Certs Pro</h3>
+              <p>Includes LLM Ops, AI product strategy, and mentor-led sessions.</p>
+              <div class="price">$129 / month</div>
+              <a class="btn btn-primary" href="ai-certs.html">Upgrade to Pro</a>
+            </article>
+            <article class="course-card fade-in">
+              <div class="tag">Team</div>
+              <h3>AI Certs Team</h3>
+              <p>Up to 25 learners with shared dashboards and outcomes reporting.</p>
+              <div class="price">$1,990 / month</div>
+              <a class="btn btn-primary" href="contact.html">Talk to sales</a>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container surface light fade-in">
+          <div class="section-banner">
+            <div>
+              <h2 class="section-title">Trajectory Passport pricing</h2>
+              <p class="section-subtitle">Annual subscription for up to 100 learners, plus add-on courses.</p>
+            </div>
+            <div>
+              <a class="btn btn-primary" href="passport.html">Explore Passport</a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="container footer-grid">
+        <div>
+          <strong>The Learning Curve</strong>
+          <p>US-based enterprise learning partner focused on customizable, instructor-led outcomes.</p>
+        </div>
+        <div>
+          <strong>Training</strong>
+          <a href="microsoft.html">Microsoft</a><br />
+          <a href="google.html">Google Cloud</a><br />
+          <a href="aws.html">AWS</a><br />
+          <a href="cisco.html">Cisco</a><br />
+          <a href="pmi.html">PMI</a>
+        </div>
+        <div>
+          <strong>Programs</strong>
+          <a href="ai-certs.html">AI Certs</a><br />
+          <a href="adoptify-ai.html">Adoptify AI</a><br />
+          <a href="passport.html">Trajectory Passport</a>
+        </div>
+        <div>
+          <strong>Company</strong>
+          <a href="about.html">About</a><br />
+          <a href="contact.html">Contact</a><br />
+          <a href="pricing.html">Pricing</a>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <script src="assets/js/data.js"></script>
+  <script src="assets/js/starfield.js"></script>
+  <script src="assets/js/stack.js"></script>
+  <script src="assets/js/config.js"></script>
+  <script src="assets/js/app.js"></script>
+</body>
+</html>
