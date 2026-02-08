@@ -647,6 +647,10 @@ button {
   margin-bottom: 20px;
 }
 
+.filter-field {
+  position: relative;
+}
+
 .filter-input,
 .filter-select {
   padding: 12px 14px;
@@ -657,6 +661,100 @@ button {
   font-size: 0.95rem;
 }
 
+.filter-button {
+  padding: 12px 18px;
+  border-radius: 12px;
+  justify-content: center;
+}
+
+.suggestions {
+  position: absolute;
+  top: calc(100% + 6px);
+  left: 0;
+  right: 0;
+  background: rgba(255, 255, 255, 0.98);
+  border-radius: 14px;
+  border: 1px solid rgba(15, 23, 42, 0.12);
+  box-shadow: var(--shadow-1);
+  padding: 6px;
+  z-index: 6;
+  max-height: 220px;
+  overflow-y: auto;
+}
+
+.suggestion-item {
+  width: 100%;
+  border: none;
+  background: transparent;
+  padding: 10px 12px;
+  border-radius: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: 600;
+  color: var(--ink-2);
+  cursor: pointer;
+}
+
+.suggestion-item span {
+  font-size: 0.8rem;
+  color: var(--ink-3);
+  font-weight: 500;
+}
+
+.suggestion-item:hover {
+  background: rgba(74, 44, 255, 0.08);
+}
+
+.lms-wizard {
+  display: grid;
+  gap: 16px;
+}
+
+.wizard-steps {
+  display: flex;
+  gap: 8px;
+}
+
+.wizard-step-indicator {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  font-weight: 700;
+  background: rgba(74, 44, 255, 0.08);
+  color: var(--brand-1);
+}
+
+.wizard-step-indicator.is-active {
+  background: linear-gradient(135deg, var(--brand-1), var(--brand-3));
+  color: white;
+  box-shadow: var(--glow);
+}
+
+.wizard-actions {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.wizard-recommendations {
+  display: grid;
+  gap: 6px;
+}
+
+.recommend-card {
+  position: relative;
+}
+
+.recommend-card input[type="checkbox"] {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  width: 18px;
+  height: 18px;
+}
 .empty-state {
   padding: 24px;
   border-radius: 16px;
@@ -851,5 +949,9 @@ footer {
   .stack-cards {
     top: 80px;
     height: 320px;
+  }
+
+  .filter-bar {
+    grid-template-columns: 1fr;
   }
 }

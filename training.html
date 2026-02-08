@@ -133,7 +133,10 @@
             <span>Live filters update instantly</span>
           </div>
           <div class="filter-bar fade-in" data-course-finder-controls>
-            <input class="filter-input" type="text" placeholder="Search courses, certifications, or skills" data-course-search />
+            <div class="filter-field">
+              <input class="filter-input" type="text" placeholder="Search courses, certifications, or skills" data-course-search />
+              <div class="suggestions" data-course-suggestions style="display: none;"></div>
+            </div>
             <select class="filter-select" data-course-vendor>
               <option value="">All vendors</option>
             </select>
@@ -143,6 +146,7 @@
             <select class="filter-select" data-course-delivery>
               <option value="">All delivery types</option>
             </select>
+            <button class="btn btn-primary filter-button" type="button" data-course-search-btn>Search</button>
           </div>
           <div class="cards-grid" data-course-finder></div>
           <div class="empty-state" data-course-empty style="display: none;">No courses match those filters. Try removing a filter.</div>
@@ -156,19 +160,57 @@
               <h2 class="section-title">LMS onboarding sequence</h2>
               <p class="section-subtitle">Enroll in the Learning Curve LMS email sequence for tailored course recommendations and cohort launches.</p>
             </div>
-            <form class="form-grid" data-lead-form data-lead-type="lms_sequence">
-              <input type="text" name="full_name" placeholder="Full name" required />
-              <input type="email" name="email" placeholder="Work email" required />
-              <input type="text" name="company" placeholder="Company" required />
-              <select name="focus_area" required>
-                <option value="">Primary focus</option>
-                <option>Cloud modernization</option>
-                <option>AI adoption</option>
-                <option>Sales enablement</option>
-                <option>Security & compliance</option>
-              </select>
-              <button class="btn btn-primary" type="submit">Start LMS sequence</button>
-            </form>
+            <div class="lms-wizard" data-lms-wizard>
+              <div class="wizard-steps">
+                <span class="wizard-step-indicator" data-step-indicator="1">01</span>
+                <span class="wizard-step-indicator" data-step-indicator="2">02</span>
+                <span class="wizard-step-indicator" data-step-indicator="3">03</span>
+              </div>
+              <form class="form-grid" data-lead-form data-lead-type="lms_sequence" data-lms-form>
+                <div class="wizard-step" data-lms-step="1">
+                  <input type="text" name="full_name" placeholder="Full name" required />
+                  <input type="email" name="email" placeholder="Work email" required />
+                  <input type="text" name="company" placeholder="Company" required />
+                  <button class="btn btn-primary" type="button" data-lms-next>Next</button>
+                </div>
+                <div class="wizard-step" data-lms-step="2" style="display: none;">
+                  <select name="audience" required>
+                    <option value="">Audience type</option>
+                    <option>Enterprise teams</option>
+                    <option>Individual learners</option>
+                    <option>Executives</option>
+                  </select>
+                  <select name="focus_area" required>
+                    <option value="">Primary focus</option>
+                    <option>Cloud modernization</option>
+                    <option>AI adoption</option>
+                    <option>Sales enablement</option>
+                    <option>Security & compliance</option>
+                  </select>
+                  <select name="timeline" required>
+                    <option value="">Timeline</option>
+                    <option>Immediate (0-30 days)</option>
+                    <option>Next quarter</option>
+                    <option>Next 6 months</option>
+                  </select>
+                  <div class="wizard-actions">
+                    <button class="btn btn-outline" type="button" data-lms-back>Back</button>
+                    <button class="btn btn-primary" type="button" data-lms-next>Next</button>
+                  </div>
+                </div>
+                <div class="wizard-step" data-lms-step="3" style="display: none;">
+                  <div class="wizard-recommendations">
+                    <strong>Recommended courses</strong>
+                    <p style="margin: 0; color: var(--ink-3);">Select the courses you want included in your LMS sequence.</p>
+                  </div>
+                  <div class="cards-grid" data-lms-recommendations></div>
+                  <div class="wizard-actions">
+                    <button class="btn btn-outline" type="button" data-lms-back>Back</button>
+                    <button class="btn btn-primary" type="submit">Start LMS sequence</button>
+                  </div>
+                </div>
+              </form>
+            </div>
           </div>
         </div>
       </section>

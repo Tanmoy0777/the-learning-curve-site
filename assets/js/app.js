@@ -169,6 +169,8 @@
 
     const controls = $('[data-course-finder-controls]');
     const searchInput = $('[data-course-search]');
+    const searchButton = $('[data-course-search-btn]');
+    const suggestionsEl = $('[data-course-suggestions]');
     const vendorSelect = $('[data-course-vendor]');
     const levelSelect = $('[data-course-level]');
     const deliverySelect = $('[data-course-delivery]');
@@ -203,6 +205,73 @@
         .concat(unique(allCourses.map((course) => course.delivery)).map((delivery) => `<option value=\"${delivery}\">${delivery}</option>`))
         .join("");
     }
+
+    const hideSuggestions = () => {
+      if (suggestionsEl) {
+        suggestionsEl.style.display = "none";
+      }
+    };
+
+    const showSuggestions = (items) => {
+      if (!suggestionsEl) return;
+      if (!items.length) {
+        hideSuggestions();
+        return;
+      }
+      suggestionsEl.innerHTML = items
+        .map((item) => {
+          if (item.type === "vendor") {
+            return `
+              <button class="suggestion-item" type="button" data-suggest-type="vendor" data-vendor-id="${item.vendorId}" data-label="${item.label}">
+                ${item.label}
+                <span>Vendor</span>
+              </button>
+            `;
+          }
+          return `
+            <button class="suggestion-item" type="button" data-suggest-type="course" data-course-id="${item.uid}" data-vendor-id="${item.vendorId}" data-label="${item.label}">
+              ${item.label}
+              <span>${item.meta}</span>
+            </button>
+          `;
+        })
+        .join("");
+      suggestionsEl.style.display = "block";
+    };
+
+    const updateSuggestions = () => {
+      const query = searchInput?.value.trim().toLowerCase() || "";
+      if (!query || query.length < 2) {
+        hideSuggestions();
+        return;
+      }
+      const vendorMatches = (window.CourseData.vendors || [])
+        .filter((vendor) => vendor.name.toLowerCase().includes(query))
+        .slice(0, 3)
+        .map((vendor) => ({
+          type: "vendor",
+          vendorId: vendor.id,
+          label: vendor.name
+        }));
+
+      const courseMatches = allCourses
+        .filter(
+          (course) =>
+            course.title.toLowerCase().includes(query) ||
+            course.focus.toLowerCase().includes(query) ||
+            course.vendorName.toLowerCase().includes(query)
+        )
+        .slice(0, 6)
+        .map((course) => ({
+          type: "course",
+          uid: course.uid,
+          vendorId: course.vendorId,
+          label: course.title,
+          meta: course.vendorName
+        }));
+
+      showSuggestions([...vendorMatches, ...courseMatches]);
+    };
 
     const render = () => {
       const search = searchInput?.value.trim().toLowerCase() || "";
@@ -259,12 +328,205 @@
       $$(".fade-in", finder).forEach((el) => fadeObserver.observe(el));
     };
 
+    if (searchInput) {
+      searchInput.addEventListener("input", () => {
+        updateSuggestions();
+        render();
+      });
+      searchInput.addEventListener("focus", updateSuggestions);
+      searchInput.addEventListener("keydown", (event) => {
+        if (event.key === "Enter") {
+          event.preventDefault();
+          render();
+          hideSuggestions();
+        }
+      });
+    }
+
+    if (searchButton) {
+      searchButton.addEventListener("click", () => {
+        render();
+        hideSuggestions();
+      });
+    }
+
+    if (vendorSelect) vendorSelect.addEventListener("change", render);
+    if (levelSelect) levelSelect.addEventListener("change", render);
+    if (deliverySelect) deliverySelect.addEventListener("change", render);
+
+    if (suggestionsEl) {
+      suggestionsEl.addEventListener("click", (event) => {
+        const target = event.target.closest(".suggestion-item");
+        if (!target) return;
+        const type = target.dataset.suggestType;
+        const label = target.dataset.label || "";
+        const vendorId = target.dataset.vendorId || "";
+        if (type === "vendor") {
+          if (vendorSelect) vendorSelect.value = vendorId;
+          if (searchInput) searchInput.value = label;
+        }
+        if (type === "course") {
+          if (searchInput) searchInput.value = label;
+          if (vendorSelect) vendorSelect.value = vendorId || vendorSelect.value;
+        }
+        render();
+        hideSuggestions();
+      });
+    }
+
     if (controls) {
-      controls.addEventListener("input", render);
-      controls.addEventListener("change", render);
+      document.addEventListener("click", (event) => {
+        if (!controls.contains(event.target)) {
+          hideSuggestions();
+        }
+      });
     }
 
     render();
+  };
+
+  const initLmsWizard = () => {
+    const form = $('[data-lms-form]');
+    if (!form || !window.CourseData) return;
+
+    const steps = Array.from(form.querySelectorAll('[data-lms-step]'));
+    const indicators = Array.from(document.querySelectorAll('[data-step-indicator]'));
+    const nextButtons = Array.from(form.querySelectorAll('[data-lms-next]'));
+    const backButtons = Array.from(form.querySelectorAll('[data-lms-back]'));
+    const recommendationsEl = form.querySelector('[data-lms-recommendations]');
+    const audienceField = form.querySelector('select[name="audience"]');
+    const focusField = form.querySelector('select[name="focus_area"]');
+
+    const vendorLookup = new Map((window.CourseData.vendors || []).map((vendor) => [vendor.id, vendor.name]));
+    const allCourses = Object.entries(window.CourseData.courses || {}).flatMap(([vendorId, courses]) =>
+      courses.map((course) => ({
+        ...course,
+        vendorId,
+        vendorName: vendorLookup.get(vendorId) || vendorId,
+        uid: `${vendorId}-${course.id}`
+      }))
+    );
+
+    const focusMap = {
+      "Cloud modernization": {
+        vendors: ["microsoft", "aws", "google"],
+        keywords: ["Cloud", "Architect", "Administrator", "Engineer"]
+      },
+      "AI adoption": {
+        vendors: ["ai-certs", "adoptify-ai", "microsoft"],
+        keywords: ["AI", "Prompt", "LLM", "Adoptify"]
+      },
+      "Sales enablement": {
+        vendors: ["microsoft", "ai-certs", "pmi"],
+        keywords: ["Power", "BI", "AI", "Agile", "Portfolio"]
+      },
+      "Security & compliance": {
+        vendors: ["cisco", "aws", "microsoft", "google"],
+        keywords: ["Security", "Risk", "Compliance"]
+      }
+    };
+
+    const getRecommendations = () => {
+      const focus = focusField?.value || "";
+      const audience = audienceField?.value || "";
+      const config = focusMap[focus] || { vendors: [], keywords: [] };
+      let filtered = allCourses.filter(
+        (course) =>
+          config.vendors.includes(course.vendorId) ||
+          config.keywords.some((keyword) => course.title.includes(keyword) || course.focus.includes(keyword))
+      );
+
+      if (audience === "Individual learners") {
+        filtered = filtered.filter((course) => ["ai-certs", "microsoft"].includes(course.vendorId));
+      }
+      if (audience === "Executives") {
+        filtered = filtered.filter((course) => ["adoptify-ai", "pmi"].includes(course.vendorId));
+      }
+
+      if (!filtered.length) {
+        filtered = allCourses.slice(0, 6);
+      }
+
+      return filtered.slice(0, 6);
+    };
+
+    const renderRecommendations = () => {
+      if (!recommendationsEl) return;
+      const recommendations = getRecommendations();
+      recommendationsEl.innerHTML = recommendations
+        .map((course) => {
+          const label = `${course.vendorName} • ${course.title}`;
+          return `
+            <label class="course-card recommend-card">
+              <div class="tag">${course.vendorName}</div>
+              <h3>${course.title}</h3>
+              <p>${course.focus}</p>
+              <div class="course-meta">
+                <span>${course.level}</span>
+                <span>${course.duration}</span>
+              </div>
+              <div class="price">$${course.price.toLocaleString()}</div>
+              <input type="checkbox" name="recommended_courses" value="${label}" checked />
+            </label>
+          `;
+        })
+        .join("");
+
+      $$(".fade-in", recommendationsEl).forEach((el) => fadeObserver.observe(el));
+    };
+
+    let currentStep = 1;
+    const showStep = (step) => {
+      currentStep = step;
+      steps.forEach((panel) => {
+        panel.style.display = panel.dataset.lmsStep === String(step) ? "grid" : "none";
+      });
+      indicators.forEach((indicator) => {
+        indicator.classList.toggle("is-active", indicator.dataset.stepIndicator === String(step));
+      });
+      if (step === 3) {
+        renderRecommendations();
+      }
+    };
+
+    const validateStep = (step) => {
+      const panel = steps.find((item) => item.dataset.lmsStep === String(step));
+      if (!panel) return true;
+      const fields = Array.from(panel.querySelectorAll("[required]"));
+      for (const field of fields) {
+        if (!field.checkValidity()) {
+          field.reportValidity();
+          return false;
+        }
+      }
+      return true;
+    };
+
+    nextButtons.forEach((button) => {
+      button.addEventListener("click", () => {
+        if (!validateStep(currentStep)) return;
+        showStep(Math.min(currentStep + 1, steps.length));
+      });
+    });
+
+    backButtons.forEach((button) => {
+      button.addEventListener("click", () => {
+        showStep(Math.max(currentStep - 1, 1));
+      });
+    });
+
+    if (audienceField) {
+      audienceField.addEventListener("change", () => {
+        if (currentStep === 3) renderRecommendations();
+      });
+    }
+    if (focusField) {
+      focusField.addEventListener("change", () => {
+        if (currentStep === 3) renderRecommendations();
+      });
+    }
+
+    showStep(1);
   };
 
   const renderCart = () => {
@@ -349,7 +611,15 @@
   const serializeForm = (form) => {
     const data = {};
     new FormData(form).forEach((value, key) => {
-      data[key] = value;
+      if (Object.prototype.hasOwnProperty.call(data, key)) {
+        if (Array.isArray(data[key])) {
+          data[key].push(value);
+        } else {
+          data[key] = [data[key], value];
+        }
+      } else {
+        data[key] = value;
+      }
     });
     return data;
   };
@@ -402,6 +672,7 @@
   updateCartCount();
   renderCourseList();
   renderCourseFinder();
+  initLmsWizard();
   renderCart();
   renderCheckout();
 })();
