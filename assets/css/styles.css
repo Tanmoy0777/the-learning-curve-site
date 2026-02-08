@@ -479,13 +479,13 @@ button {
   color: white;
 }
 
-.logo-ms { background: linear-gradient(135deg, #2f6bff, #4a2cff); }
-.logo-gc { background: linear-gradient(135deg, #34a853, #1b9cff); }
-.logo-aws { background: linear-gradient(135deg, #ff9900, #ff5e2b); }
-.logo-cisco { background: linear-gradient(135deg, #22b0ff, #2471ff); }
-.logo-pmi { background: linear-gradient(135deg, #4a2cff, #8f4bff); }
-.logo-ai { background: linear-gradient(135deg, #21b8a6, #5ce1c8); }
-.logo-adopt { background: linear-gradient(135deg, #ff6a5b, #6b1fd6); }
+.logo-ms { background: linear-gradient(135deg, #ff9100, #dd2c00); }
+.logo-gc { background: linear-gradient(135deg, #34a853, #ff9100); }
+.logo-aws { background: linear-gradient(135deg, #ff9100, #ffc400); }
+.logo-cisco { background: linear-gradient(135deg, #34a853, #dd2c00); }
+.logo-pmi { background: linear-gradient(135deg, #dd2c00, #ffc400); }
+.logo-ai { background: linear-gradient(135deg, #34a853, #ffc400); }
+.logo-adopt { background: linear-gradient(135deg, #dd2c00, #ff9100); }
 
 .logo-name {
   white-space: nowrap;
@@ -813,15 +813,15 @@ button {
 .filter-select {
   padding: 12px 14px;
   border-radius: 12px;
-  border: 1px solid rgba(15, 23, 42, 0.14);
-  background: rgba(255, 255, 255, 0.95);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(14, 14, 14, 0.92);
   font-family: inherit;
   font-size: 0.95rem;
-  color: #0b0f1d;
+  color: var(--ink-1);
 }
 
 .filter-input::placeholder {
-  color: #4b5565;
+  color: var(--ink-3);
 }
 
 .filter-button {
@@ -836,9 +836,9 @@ button {
   top: calc(100% + 6px);
   left: 0;
   right: 0;
-  background: rgba(255, 255, 255, 0.98);
+  background: rgba(8, 8, 8, 0.98);
   border-radius: 14px;
-  border: 1px solid rgba(15, 23, 42, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.12);
   box-shadow: var(--shadow-1);
   padding: 6px;
   z-index: 6;
@@ -856,7 +856,7 @@ button {
   justify-content: space-between;
   align-items: center;
   font-weight: 600;
-  color: #1b233a;
+  color: var(--ink-2);
   cursor: pointer;
 }
 
@@ -1027,12 +1027,12 @@ textarea {
 
 input::placeholder,
 textarea::placeholder {
-  color: rgba(201, 210, 236, 0.65);
+  color: rgba(200, 200, 200, 0.65);
 }
 
 footer {
   padding: 40px 0 60px;
-  background: #060914;
+  background: #050505;
   border-top: 1px solid rgba(255, 255, 255, 0.16);
 }
 
