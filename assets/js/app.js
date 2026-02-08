@@ -110,11 +110,12 @@
 
   const addToCart = (course) => {
     const items = getCart();
-    const existing = items.find((item) => item.id === course.id);
+    const courseId = course.uid || course.id;
+    const existing = items.find((item) => item.id === courseId);
     if (existing) {
       existing.qty += 1;
     } else {
-      items.push({ ...course, qty: 1 });
+      items.push({ ...course, id: courseId, qty: 1 });
     }
     saveCart(items);
     updateCartCount();
@@ -125,11 +126,19 @@
     if (!list || !window.CourseData) return;
     const vendorId = list.dataset.vendor;
     const courses = window.CourseData.courses[vendorId] || [];
+    const vendorName = (window.CourseData.vendors || []).find((vendor) => vendor.id === vendorId)?.name || vendorId;
+    const courseMap = new Map(
+      courses.map((course) => {
+        const uid = `${vendorId}-${course.id}`;
+        return [uid, { ...course, uid, vendorId, vendorName }];
+      })
+    );
     list.innerHTML = courses
       .map((course) => {
+        const uid = `${vendorId}-${course.id}`;
         return `
           <article class="course-card fade-in">
-            <div class="tag">${course.level}</div>
+            <div class="tag">${vendorName}</div>
             <h3>${course.title}</h3>
             <p>${course.focus}</p>
             <div class="course-meta">
@@ -137,7 +146,7 @@
               <span>${course.delivery}</span>
             </div>
             <div class="price">$${course.price.toLocaleString()}</div>
-            <button class="btn btn-primary" data-add-to-cart data-course-id="${course.id}">Add to cart</button>
+            <button class="btn btn-primary" data-add-to-cart data-course-id="${uid}">Add to cart</button>
           </article>
         `;
       })
@@ -146,12 +155,116 @@
     $$("[data-add-to-cart]", list).forEach((button) => {
       button.addEventListener("click", () => {
         const courseId = button.dataset.courseId;
-        const course = courses.find((item) => item.id === courseId);
+        const course = courseMap.get(courseId);
         if (course) addToCart(course);
       });
     });
 
     $$(".fade-in", list).forEach((el) => fadeObserver.observe(el));
+  };
+
+  const renderCourseFinder = () => {
+    const finder = $('[data-course-finder]');
+    if (!finder || !window.CourseData) return;
+
+    const controls = $('[data-course-finder-controls]');
+    const searchInput = $('[data-course-search]');
+    const vendorSelect = $('[data-course-vendor]');
+    const levelSelect = $('[data-course-level]');
+    const deliverySelect = $('[data-course-delivery]');
+    const countEl = $('[data-course-count]');
+    const emptyState = $('[data-course-empty]');
+
+    const vendorLookup = new Map((window.CourseData.vendors || []).map((vendor) => [vendor.id, vendor.name]));
+    const allCourses = Object.entries(window.CourseData.courses || {}).flatMap(([vendorId, courses]) =>
+      courses.map((course) => ({
+        ...course,
+        vendorId,
+        vendorName: vendorLookup.get(vendorId) || vendorId,
+        uid: `${vendorId}-${course.id}`
+      }))
+    );
+
+    const unique = (items) => Array.from(new Set(items)).filter(Boolean);
+    if (vendorSelect) {
+      vendorSelect.innerHTML = ['<option value=\"\">All vendors</option>']
+        .concat(
+          (window.CourseData.vendors || []).map((vendor) => `<option value=\"${vendor.id}\">${vendor.name}</option>`)
+        )
+        .join("");
+    }
+    if (levelSelect) {
+      levelSelect.innerHTML = ['<option value=\"\">All levels</option>']
+        .concat(unique(allCourses.map((course) => course.level)).map((level) => `<option value=\"${level}\">${level}</option>`))
+        .join("");
+    }
+    if (deliverySelect) {
+      deliverySelect.innerHTML = ['<option value=\"\">All delivery types</option>']
+        .concat(unique(allCourses.map((course) => course.delivery)).map((delivery) => `<option value=\"${delivery}\">${delivery}</option>`))
+        .join("");
+    }
+
+    const render = () => {
+      const search = searchInput?.value.trim().toLowerCase() || "";
+      const vendor = vendorSelect?.value || "";
+      const level = levelSelect?.value || "";
+      const delivery = deliverySelect?.value || "";
+
+      const filtered = allCourses.filter((course) => {
+        const matchesSearch =
+          !search ||
+          course.title.toLowerCase().includes(search) ||
+          course.focus.toLowerCase().includes(search) ||
+          course.vendorName.toLowerCase().includes(search);
+        const matchesVendor = !vendor || course.vendorId === vendor;
+        const matchesLevel = !level || course.level === level;
+        const matchesDelivery = !delivery || course.delivery === delivery;
+        return matchesSearch && matchesVendor && matchesLevel && matchesDelivery;
+      });
+
+      if (countEl) {
+        countEl.textContent = `${filtered.length} courses`;
+      }
+
+      finder.innerHTML = filtered
+        .map((course) => {
+          return `
+            <article class="course-card fade-in">
+              <div class="tag">${course.vendorName}</div>
+              <h3>${course.title}</h3>
+              <p>${course.focus}</p>
+              <div class="course-meta">
+                <span>${course.level}</span>
+                <span>${course.duration}</span>
+              </div>
+              <div class="price">$${course.price.toLocaleString()}</div>
+              <button class="btn btn-primary" data-add-to-cart data-course-id="${course.uid}">Add to cart</button>
+            </article>
+          `;
+        })
+        .join("");
+
+      if (emptyState) {
+        emptyState.style.display = filtered.length ? "none" : "block";
+      }
+
+      $$("[data-add-to-cart]", finder).forEach((button) => {
+        button.addEventListener("click", () => {
+          const courseId = button.dataset.courseId;
+          const course = allCourses.find((item) => item.uid === courseId);
+          if (course) addToCart(course);
+        });
+      });
+
+      $$(".fade-in", finder).forEach((el) => fadeObserver.observe(el));
+    };
+
+    if (controls) {
+      controls.addEventListener("input", render);
+      controls.addEventListener("change", render);
+    }
+
+    render();
   };
 
   const renderCart = () => {
@@ -170,10 +283,11 @@
       .map((item) => {
         return `
           <div class="course-card">
-            <div class="tag">${item.level}</div>
+            <div class="tag">${item.vendorName || item.vendorId || "Course"}</div>
             <h3>${item.title}</h3>
             <p>${item.focus}</p>
             <div class="course-meta">
+              <span>${item.level || "Level"}</span>
               <span>Qty ${item.qty}</span>
               <span>$${item.price.toLocaleString()}</span>
             </div>
@@ -287,6 +401,7 @@
 
   updateCartCount();
   renderCourseList();
+  renderCourseFinder();
   renderCart();
   renderCheckout();
 })();

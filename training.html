@@ -125,6 +125,55 @@
       </section>
 
       <section class="section">
+        <div class="container">
+          <h2 class="section-title fade-in">Course finder</h2>
+          <p class="section-subtitle fade-in">Search across all vendor libraries and filter by role, level, or delivery type.</p>
+          <div class="filter-meta fade-in">
+            <span data-course-count>0 courses</span>
+            <span>Live filters update instantly</span>
+          </div>
+          <div class="filter-bar fade-in" data-course-finder-controls>
+            <input class="filter-input" type="text" placeholder="Search courses, certifications, or skills" data-course-search />
+            <select class="filter-select" data-course-vendor>
+              <option value="">All vendors</option>
+            </select>
+            <select class="filter-select" data-course-level>
+              <option value="">All levels</option>
+            </select>
+            <select class="filter-select" data-course-delivery>
+              <option value="">All delivery types</option>
+            </select>
+          </div>
+          <div class="cards-grid" data-course-finder></div>
+          <div class="empty-state" data-course-empty style="display: none;">No courses match those filters. Try removing a filter.</div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container surface light fade-in">
+          <div class="section-banner">
+            <div>
+              <h2 class="section-title">LMS onboarding sequence</h2>
+              <p class="section-subtitle">Enroll in the Learning Curve LMS email sequence for tailored course recommendations and cohort launches.</p>
+            </div>
+            <form class="form-grid" data-lead-form data-lead-type="lms_sequence">
+              <input type="text" name="full_name" placeholder="Full name" required />
+              <input type="email" name="email" placeholder="Work email" required />
+              <input type="text" name="company" placeholder="Company" required />
+              <select name="focus_area" required>
+                <option value="">Primary focus</option>
+                <option>Cloud modernization</option>
+                <option>AI adoption</option>
+                <option>Sales enablement</option>
+                <option>Security & compliance</option>
+              </select>
+              <button class="btn btn-primary" type="submit">Start LMS sequence</button>
+            </form>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
         <div class="container surface light fade-in">
           <div class="section-banner">
             <div>

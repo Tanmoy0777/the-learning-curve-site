@@ -16,17 +16,24 @@
     const progress = clamp(scrollY / Math.max(maxScroll, 1), 0, 1);
     const total = cards.length - 1;
     const rawIndex = progress * total;
+    const activeIndex = Math.round(rawIndex);
+    const isMobile = window.innerWidth < 768;
+    const depthStep = isMobile ? 160 : 220;
+    const scaleStep = isMobile ? 0.085 : 0.06;
+    const translateStep = isMobile ? 42 : 30;
+    const opacityStep = isMobile ? 0.22 : 0.25;
 
     cards.forEach((card, index) => {
       const offset = index - rawIndex;
-      const depth = -Math.abs(offset) * 220;
-      const scale = 1 - Math.min(Math.abs(offset) * 0.06, 0.2);
-      const translateY = offset * 30;
-      const opacity = 1 - Math.min(Math.abs(offset) * 0.25, 0.6);
+      const depth = -Math.abs(offset) * depthStep;
+      const scale = 1 - Math.min(Math.abs(offset) * scaleStep, 0.22);
+      const translateY = offset * translateStep;
+      const opacity = 1 - Math.min(Math.abs(offset) * opacityStep, 0.6);
 
       card.style.transform = `translateY(${translateY}px) translateZ(${depth}px) scale(${scale})`;
       card.style.opacity = opacity;
       card.style.zIndex = `${100 - Math.abs(offset) * 10}`;
+      card.classList.toggle("is-active", index === activeIndex);
     });
   };
 
@@ -35,7 +42,8 @@
       const scroller = section.querySelector(".stack-scroller");
       const cards = section.querySelectorAll(".stack-card");
       if (!scroller || !cards.length) return;
-      scroller.style.height = `${cards.length * 80}vh`;
+      const heightUnit = window.innerWidth < 768 ? 70 : 80;
+      scroller.style.height = `${cards.length * heightUnit}vh`;
       updateStack(section);
     });
   };

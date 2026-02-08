@@ -574,6 +574,11 @@ button {
   transition: transform 0.3s ease, opacity 0.3s ease;
 }
 
+.stack-card.is-active {
+  box-shadow: 0 26px 70px rgba(49, 60, 110, 0.25);
+  border-color: rgba(74, 44, 255, 0.25);
+}
+
 .stack-card h3 {
   margin-top: 0;
 }
@@ -623,6 +628,42 @@ button {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
   gap: 20px;
+}
+
+.filter-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: var(--ink-3);
+  font-weight: 600;
+  font-size: 0.9rem;
+  margin-bottom: 12px;
+}
+
+.filter-bar {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.filter-input,
+.filter-select {
+  padding: 12px 14px;
+  border-radius: 12px;
+  border: 1px solid rgba(15, 23, 42, 0.14);
+  background: rgba(255, 255, 255, 0.95);
+  font-family: inherit;
+  font-size: 0.95rem;
+}
+
+.empty-state {
+  padding: 24px;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.7);
+  border: 1px dashed rgba(15, 23, 42, 0.2);
+  color: var(--ink-3);
+  text-align: center;
 }
 
 .course-card {
@@ -805,5 +846,10 @@ footer {
 
   .metric-floating:nth-child(3) {
     right: 0;
+  }
+
+  .stack-cards {
+    top: 80px;
+    height: 320px;
   }
 }
