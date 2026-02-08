@@ -10,15 +10,18 @@
     });
   }
 
-  const dropdownToggle = $("[data-dropdown-toggle]");
-  if (dropdownToggle) {
-    dropdownToggle.addEventListener("click", (event) => {
+  const dropdownToggles = $$("[data-dropdown-toggle]");
+  dropdownToggles.forEach((toggle) => {
+    toggle.addEventListener("click", (event) => {
       if (window.innerWidth < 900) {
         event.preventDefault();
-        dropdownToggle.parentElement.classList.toggle("open");
+        const parent = toggle.closest(".dropdown");
+        if (parent) {
+          parent.classList.toggle("open");
+        }
       }
     });
-  }
+  });
 
   const countUp = (el) => {
     const target = Number(el.dataset.count || "0");
@@ -520,6 +523,74 @@
     render();
   };
 
+  const addChartAxes = () => {
+    const svgs = $$("svg.chart-line");
+    const ns = "http://www.w3.org/2000/svg";
+
+    const createLine = (x1, y1, x2, y2, className = "") => {
+      const line = document.createElementNS(ns, "line");
+      line.setAttribute("x1", x1);
+      line.setAttribute("y1", y1);
+      line.setAttribute("x2", x2);
+      line.setAttribute("y2", y2);
+      if (className) line.setAttribute("class", className);
+      return line;
+    };
+
+    const createText = (x, y, text, anchor = "middle") => {
+      const t = document.createElementNS(ns, "text");
+      t.setAttribute("x", x);
+      t.setAttribute("y", y);
+      t.setAttribute("text-anchor", anchor);
+      t.textContent = text;
+      return t;
+    };
+
+    svgs.forEach((svg) => {
+      if (svg.dataset.axis === "true") return;
+      const viewBox = svg.getAttribute("viewBox");
+      if (!viewBox) return;
+      const [minX, minY, width, height] = viewBox.split(" ").map(Number);
+      if (!Number.isFinite(width) || !Number.isFinite(height)) return;
+
+      const marginX = Math.max(width * 0.06, 12);
+      const marginTop = Math.max(height * 0.2, 12);
+      const marginBottom = Math.max(height * 0.14, 10);
+      const xAxisLeft = minX + marginX;
+      const xAxisRight = minX + width - marginX;
+      const yAxisTop = minY + marginTop;
+      const yAxisBottom = minY + height - marginBottom;
+
+      const axisGroup = document.createElementNS(ns, "g");
+      axisGroup.setAttribute("class", "chart-axis");
+
+      axisGroup.appendChild(createLine(xAxisLeft, yAxisBottom, xAxisRight, yAxisBottom));
+      axisGroup.appendChild(createLine(xAxisLeft, yAxisTop, xAxisLeft, yAxisBottom));
+
+      const yLabels = ["0", "50", "100"];
+      yLabels.forEach((label, idx) => {
+        const y = yAxisBottom - ((yAxisBottom - yAxisTop) * idx) / (yLabels.length - 1);
+        axisGroup.appendChild(createLine(xAxisLeft - 4, y, xAxisLeft, y));
+        axisGroup.appendChild(createText(xAxisLeft - 8, y + 3, label, "end"));
+      });
+
+      const xLabels = width >= 300 ? ["Q1", "Q2", "Q3", "Q4"] : ["W1", "W2", "W3", "W4"];
+      xLabels.forEach((label, idx) => {
+        const x = xAxisLeft + ((xAxisRight - xAxisLeft) * idx) / (xLabels.length - 1);
+        axisGroup.appendChild(createLine(x, yAxisBottom, x, yAxisBottom + 4));
+        axisGroup.appendChild(createText(x, yAxisBottom + 14, label, "middle"));
+      });
+
+      const defs = svg.querySelector("defs");
+      if (defs && defs.nextSibling) {
+        svg.insertBefore(axisGroup, defs.nextSibling);
+      } else {
+        svg.insertBefore(axisGroup, svg.firstChild);
+      }
+      svg.dataset.axis = "true";
+    });
+  };
+
   const initLmsWizard = () => {
     const form = $('[data-lms-form]');
     if (!form || !window.CourseData) return;
@@ -839,6 +910,7 @@
   renderVendorCourseLists();
   renderCourseFinder();
   initLmsWizard();
+  addChartAxes();
   renderCart();
   renderCheckout();
 })();
