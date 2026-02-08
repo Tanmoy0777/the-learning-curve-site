@@ -787,7 +787,9 @@
             <p>${item.focus}</p>
             <div class="course-meta">
               <span>${item.level || "Level"}</span>
-              <span>Qty ${item.qty}</span>
+              <label class="qty-control">Qty
+                <input type="number" min="1" max="99" value="${item.qty}" data-qty="${item.id}" />
+              </label>
               <span>$${item.price.toLocaleString()}</span>
             </div>
             <button class="btn btn-outline" data-remove="${item.id}">Remove</button>
@@ -803,6 +805,17 @@
       button.addEventListener("click", () => {
         const id = button.dataset.remove;
         const updated = getCart().filter((item) => item.id !== id);
+        saveCart(updated);
+        renderCart();
+        updateCartCount();
+      });
+    });
+
+    $$("[data-qty]", cartList).forEach((input) => {
+      input.addEventListener("change", () => {
+        const id = input.dataset.qty;
+        const value = Math.max(1, Math.min(99, Number(input.value) || 1));
+        const updated = getCart().map((item) => (item.id === id ? { ...item, qty: value } : item));
         saveCart(updated);
         renderCart();
         updateCartCount();
