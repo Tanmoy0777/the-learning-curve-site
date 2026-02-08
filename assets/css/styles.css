@@ -1,20 +1,20 @@
 :root {
-  --ink-1: #f5f7ff;
-  --ink-2: #d7dbee;
-  --ink-3: #9aa6c4;
-  --brand-1: #1b2b5f;
-  --brand-2: #4a2cff;
-  --brand-3: #6b1fd6;
-  --surface: rgba(12, 16, 30, 0.86);
-  --surface-2: rgba(17, 22, 40, 0.76);
-  --surface-3: rgba(20, 26, 48, 0.9);
-  --border: rgba(148, 163, 255, 0.14);
-  --shadow-1: 0 16px 40px rgba(3, 8, 25, 0.45);
-  --shadow-2: 0 24px 60px rgba(3, 8, 25, 0.55);
-  --glow: 0 0 30px rgba(98, 76, 255, 0.5);
-  --teal: #21b8a6;
-  --amber: #f6b24f;
-  --coral: #ff6a5b;
+  --ink-1: #f5f5f5;
+  --ink-2: #d6d6d6;
+  --ink-3: #9c9c9c;
+  --brand-1: #dd2c00;
+  --brand-2: #ff9100;
+  --brand-3: #ffc400;
+  --surface: rgba(12, 12, 12, 0.92);
+  --surface-2: rgba(18, 18, 18, 0.86);
+  --surface-3: rgba(24, 24, 24, 0.9);
+  --border: rgba(255, 255, 255, 0.08);
+  --shadow-1: 0 16px 40px rgba(0, 0, 0, 0.55);
+  --shadow-2: 0 24px 60px rgba(0, 0, 0, 0.7);
+  --glow: 0 0 30px rgba(255, 145, 0, 0.45);
+  --teal: #34a853;
+  --amber: #ffc400;
+  --coral: #dd2c00;
   --radius-lg: 22px;
   --radius-md: 16px;
   --radius-sm: 12px;
@@ -34,10 +34,12 @@ body {
   margin: 0;
   font-family: "Manrope", "Sora", system-ui, -apple-system, sans-serif;
   color: var(--ink-1);
-  background: #0b0f1d;
-  background-image: radial-gradient(circle at 10% 20%, rgba(74, 44, 255, 0.18), transparent 42%),
-    radial-gradient(circle at 90% 0%, rgba(33, 184, 166, 0.14), transparent 45%),
-    radial-gradient(circle at 50% 100%, rgba(107, 31, 214, 0.12), transparent 50%);
+  background: #050505;
+  background-image:
+    radial-gradient(circle at 12% 12%, rgba(221, 44, 0, 0.35), transparent 42%),
+    radial-gradient(circle at 88% 16%, rgba(255, 145, 0, 0.32), transparent 40%),
+    radial-gradient(circle at 50% 100%, rgba(52, 168, 83, 0.28), transparent 52%),
+    linear-gradient(180deg, rgba(0, 0, 0, 0) 40%, rgba(221, 44, 0, 0.18) 70%, rgba(255, 145, 0, 0.22) 85%, rgba(52, 168, 83, 0.18) 100%);
   min-height: 100vh;
   overflow-x: hidden;
 }
@@ -103,7 +105,7 @@ button {
   gap: 8px;
   padding: 8px 14px;
   border-radius: 999px;
-  background: rgba(74, 44, 255, 0.2);
+  background: rgba(255, 145, 0, 0.2);
   color: var(--ink-1);
   font-weight: 600;
   font-size: 0.85rem;
@@ -115,8 +117,8 @@ button {
   top: 0;
   z-index: 10;
   backdrop-filter: blur(18px);
-  background: rgba(9, 13, 26, 0.88);
-  border-bottom: 1px solid rgba(148, 163, 255, 0.16);
+  background: rgba(6, 6, 6, 0.9);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 .nav-wrap {
@@ -189,12 +191,12 @@ button {
 
 .btn-primary:hover {
   transform: translateY(-2px);
-  box-shadow: 0 18px 40px rgba(74, 44, 255, 0.3);
+  box-shadow: 0 18px 40px rgba(255, 145, 0, 0.3);
 }
 
 .btn-ghost {
-  background: rgba(74, 44, 255, 0.18);
-  border: 1px solid rgba(98, 76, 255, 0.4);
+  background: rgba(255, 145, 0, 0.18);
+  border: 1px solid rgba(255, 145, 0, 0.4);
   color: var(--ink-1);
 }
 
@@ -203,8 +205,8 @@ button {
 }
 
 .btn-outline {
-  border: 1px solid rgba(148, 163, 255, 0.24);
-  background: rgba(12, 16, 30, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  background: rgba(12, 12, 12, 0.7);
   color: var(--ink-1);
 }
 
@@ -214,6 +216,13 @@ button {
   display: inline-flex;
   align-items: center;
   height: 34px;
+}
+
+.dropdown > button {
+  height: 34px;
+  display: inline-flex;
+  align-items: center;
+  margin: 0;
 }
 
 .dropdown::after {
@@ -232,9 +241,9 @@ button {
   min-width: 260px;
   padding: 16px;
   border-radius: 18px;
-  background: rgba(12, 16, 30, 0.96);
+  background: rgba(8, 8, 8, 0.96);
   box-shadow: var(--shadow-1);
-  border: 1px solid rgba(148, 163, 255, 0.16);
+  border: 1px solid rgba(255, 255, 255, 0.08);
   display: grid;
   gap: 12px;
   opacity: 0;
@@ -437,7 +446,7 @@ button {
 .logo-marquee {
   overflow: hidden;
   border-radius: 999px;
-  border: 1px solid rgba(148, 163, 255, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.2);
   background: rgba(12, 16, 30, 0.7);
 }
 
@@ -491,7 +500,7 @@ button {
   padding: 8px 12px;
   border-radius: 10px;
   background: rgba(12, 16, 30, 0.95);
-  border: 1px solid rgba(148, 163, 255, 0.25);
+  border: 1px solid rgba(255, 255, 255, 0.25);
   color: var(--ink-2);
   font-size: 0.75rem;
   white-space: nowrap;
@@ -614,7 +623,7 @@ button {
 }
 
 .ring-bg {
-  stroke: rgba(148, 163, 255, 0.18);
+  stroke: rgba(255, 255, 255, 0.18);
   stroke-width: 8;
   fill: none;
 }
@@ -656,12 +665,12 @@ button {
 }
 
 .chart-axis line {
-  stroke: rgba(148, 163, 255, 0.28);
+  stroke: rgba(255, 255, 255, 0.28);
   stroke-width: 1;
 }
 
 .chart-axis text {
-  fill: rgba(201, 210, 236, 0.7);
+  fill: rgba(220, 220, 220, 0.7);
   font-size: 10px;
   font-family: "Manrope", "Sora", sans-serif;
 }
@@ -765,7 +774,7 @@ button {
   width: 40px;
   height: 40px;
   border-radius: 50%;
-  border: 1px solid rgba(148, 163, 255, 0.24);
+  border: 1px solid rgba(255, 255, 255, 0.24);
   background: rgba(12, 16, 30, 0.8);
   cursor: pointer;
   color: var(--ink-1);
@@ -919,7 +928,7 @@ button {
   padding: 24px;
   border-radius: 16px;
   background: rgba(12, 16, 30, 0.7);
-  border: 1px dashed rgba(148, 163, 255, 0.22);
+  border: 1px dashed rgba(255, 255, 255, 0.22);
   color: var(--ink-3);
   text-align: center;
 }
@@ -967,7 +976,7 @@ button {
   width: 64px;
   padding: 6px 8px;
   border-radius: 10px;
-  border: 1px solid rgba(148, 163, 255, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.3);
   background: rgba(12, 16, 30, 0.7);
   color: var(--ink-1);
   font-family: inherit;
@@ -1009,10 +1018,10 @@ select,
 textarea {
   padding: 12px 14px;
   border-radius: 12px;
-  border: 1px solid rgba(148, 163, 255, 0.24);
+  border: 1px solid rgba(255, 255, 255, 0.12);
   font-family: inherit;
   font-size: 1rem;
-  background: rgba(10, 14, 28, 0.8);
+  background: rgba(10, 10, 10, 0.8);
   color: var(--ink-1);
 }
 
@@ -1024,7 +1033,7 @@ textarea::placeholder {
 footer {
   padding: 40px 0 60px;
   background: #060914;
-  border-top: 1px solid rgba(148, 163, 255, 0.16);
+  border-top: 1px solid rgba(255, 255, 255, 0.16);
 }
 
 .footer-grid {
@@ -1073,7 +1082,7 @@ footer {
 .accent-line {
   height: 4px;
   border-radius: 999px;
-  background: linear-gradient(90deg, rgba(33, 184, 166, 0.8), rgba(246, 178, 79, 0.8), rgba(255, 106, 91, 0.8));
+  background: linear-gradient(90deg, rgba(221, 44, 0, 0.8), rgba(255, 145, 0, 0.8), rgba(52, 168, 83, 0.8));
   filter: blur(0.2px);
   background-size: 200% 200%;
   animation: shimmer 8s ease infinite;
