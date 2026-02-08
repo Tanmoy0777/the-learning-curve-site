@@ -12,9 +12,9 @@ PALETTE = {
     "bg": "#0b0b0f",
     "surface": "#121218",
     "surface_alt": "#171722",
-    "ink": "#f5f5f7",
-    "ink_muted": "#d2d2da",
-    "ink_soft": "#a8a8b5",
+    "ink": "#ffffff",
+    "ink_muted": "#e5e5ef",
+    "ink_soft": "#c9c9d9",
     "accent_red": "#dd2c00",
     "accent_orange": "#ff9100",
     "accent_green": "#34a853",
@@ -50,45 +50,56 @@ class PdfBuilder:
         self.pages.append(PdfPage(ops=ops))
 
     def build(self, output_path: Path):
-        objects = []
-        objects.append("1 0 obj << /Type /Catalog /Pages 2 0 R >> endobj\n")
-        objects.append(
+        objects = {}
+        objects[1] = "1 0 obj << /Type /Catalog /Pages 2 0 R >> endobj\n"
+        objects[2] = (
             f"2 0 obj << /Type /Pages /Kids [{' '.join(f'{i} 0 R' for i in range(3, 3 + len(self.pages)))}] /Count {len(self.pages)} >> endobj\n"
         )
 
         page_objects_start = 3
         contents_objects_start = page_objects_start + len(self.pages)
+        font_regular_id = contents_objects_start + len(self.pages)
+        font_bold_id = font_regular_id + 1
 
         for i, page in enumerate(self.pages):
             page_obj_id = page_objects_start + i
             content_obj_id = contents_objects_start + i
-            objects.append(
-                f"{page_obj_id} 0 obj << /Type /Page /Parent 2 0 R /MediaBox [0 0 {self.page_w} {self.page_h}] /Contents {content_obj_id} 0 R /Resources << /Font << /F1 500 0 R /F2 501 0 R >> >> >> endobj\n"
+            objects[page_obj_id] = (
+                f"{page_obj_id} 0 obj << /Type /Page /Parent 2 0 R /MediaBox [0 0 {self.page_w} {self.page_h}] "
+                f"/Contents {content_obj_id} 0 R /Resources << /Font << /F1 {font_regular_id} 0 R /F2 {font_bold_id} 0 R >> >> >> endobj\n"
             )
 
         for i, page in enumerate(self.pages):
             content_obj_id = contents_objects_start + i
             content = "\n".join(page.ops) + "\n"
-            objects.append(
+            objects[content_obj_id] = (
                 f"{content_obj_id} 0 obj << /Length {len(content.encode('utf-8'))} >> stream\n{content}endstream endobj\n"
             )
 
-        # Fonts
-        objects.append("500 0 obj << /Type /Font /Subtype /Type1 /BaseFont /Helvetica >> endobj\n")
-        objects.append("501 0 obj << /Type /Font /Subtype /Type1 /BaseFont /Helvetica-Bold >> endobj\n")
+        objects[font_regular_id] = (
+            f"{font_regular_id} 0 obj << /Type /Font /Subtype /Type1 /BaseFont /Helvetica >> endobj\n"
+        )
+        objects[font_bold_id] = (
+            f"{font_bold_id} 0 obj << /Type /Font /Subtype /Type1 /BaseFont /Helvetica-Bold >> endobj\n"
+        )
 
         pdf = "%PDF-1.4\n"
-        offsets = []
-        for obj in objects:
-            offsets.append(len(pdf.encode('utf-8')))
-            pdf += obj
+        offsets = {}
+        max_id = max(objects.keys())
+        for obj_id in range(1, max_id + 1):
+            if obj_id in objects:
+                offsets[obj_id] = len(pdf.encode("utf-8"))
+                pdf += objects[obj_id]
 
-        xref_offset = len(pdf.encode('utf-8'))
-        pdf += f"xref\n0 {len(objects) + 1}\n"
+        xref_offset = len(pdf.encode("utf-8"))
+        pdf += f"xref\n0 {max_id + 1}\n"
         pdf += "0000000000 65535 f \n"
-        for offset in offsets:
-            pdf += f"{offset:010d} 00000 n \n"
-        pdf += f"trailer << /Size {len(objects) + 1} /Root 1 0 R >>\n"
+        for obj_id in range(1, max_id + 1):
+            if obj_id in offsets:
+                pdf += f"{offsets[obj_id]:010d} 00000 n \n"
+            else:
+                pdf += "0000000000 65535 f \n"
+        pdf += f"trailer << /Size {max_id + 1} /Root 1 0 R >>\n"
         pdf += f"startxref\n{xref_offset}\n%%EOF\n"
 
         output_path.write_bytes(pdf.encode("utf-8"))
