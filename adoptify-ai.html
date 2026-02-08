@@ -120,7 +120,22 @@
         <div class="container">
           <h2 class="section-title fade-in">Adoptify AI program modules</h2>
           <p class="section-subtitle fade-in">Executive workshops and enablement tracks for AI adoption at scale.</p>
-          <div class="cards-grid" data-course-list data-vendor="adoptify-ai"></div>
+          <div class="filter-meta fade-in">
+  <span data-vendor-count data-vendor-scope="adoptify-ai">0 courses</span>
+  <span>Filter Adoptify AI courses</span>
+</div>
+<div class="filter-bar fade-in" data-vendor-filter-controls data-vendor-scope="adoptify-ai">
+  <input class="filter-input" type="text" placeholder="Search Adoptify AI courses" data-vendor-search />
+  <select class="filter-select" data-vendor-level>
+    <option value="">All levels</option>
+  </select>
+  <select class="filter-select" data-vendor-delivery>
+    <option value="">All delivery types</option>
+  </select>
+  <button class="btn btn-primary filter-button" type="button" data-vendor-search-btn>Search</button>
+</div>
+<div class="cards-grid" data-course-list data-vendor="adoptify-ai" data-vendor-scope="adoptify-ai"></div>
+<div class="empty-state" data-vendor-empty data-vendor-scope="adoptify-ai" style="display: none;">No courses match those filters. Try removing a filter.</div>
         </div>
       </section>
 

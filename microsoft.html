@@ -120,7 +120,22 @@
         <div class="container">
           <h2 class="section-title fade-in">Microsoft course library</h2>
           <p class="section-subtitle fade-in">Every course can be customized by role, department, and tool stack.</p>
-          <div class="cards-grid" data-course-list data-vendor="microsoft"></div>
+          <div class="filter-meta fade-in">
+  <span data-vendor-count data-vendor-scope="microsoft">0 courses</span>
+  <span>Filter Microsoft courses</span>
+</div>
+<div class="filter-bar fade-in" data-vendor-filter-controls data-vendor-scope="microsoft">
+  <input class="filter-input" type="text" placeholder="Search Microsoft courses" data-vendor-search />
+  <select class="filter-select" data-vendor-level>
+    <option value="">All levels</option>
+  </select>
+  <select class="filter-select" data-vendor-delivery>
+    <option value="">All delivery types</option>
+  </select>
+  <button class="btn btn-primary filter-button" type="button" data-vendor-search-btn>Search</button>
+</div>
+<div class="cards-grid" data-course-list data-vendor="microsoft" data-vendor-scope="microsoft"></div>
+<div class="empty-state" data-vendor-empty data-vendor-scope="microsoft" style="display: none;">No courses match those filters. Try removing a filter.</div>
         </div>
       </section>
 

@@ -67,58 +67,92 @@
     const track = $(".carousel-track", carousel);
     const prev = $("[data-carousel-prev]", carousel);
     const next = $("[data-carousel-next]", carousel);
-    if (!track || !prev || !next) return;
+    if (!track) return;
 
     let index = 0;
+    let currentTranslate = 0;
+    let prevTranslate = 0;
+    let startX = 0;
+    let lastX = 0;
+    let lastTime = 0;
+    let velocity = 0;
+    let isPointerDown = false;
     const items = $$(".carousel-item", track);
 
-    const update = () => {
-      const offset = items[0].offsetWidth + 20;
-      track.style.transform = `translateX(${-index * offset}px)`;
+    const getItemWidth = () => {
+      if (!items.length) return 0;
+      const styles = window.getComputedStyle(items[0]);
+      const marginRight = parseFloat(styles.marginRight || "0");
+      return items[0].getBoundingClientRect().width + marginRight;
     };
 
-    prev.addEventListener("click", () => {
-      index = Math.max(index - 1, 0);
-      update();
-    });
+    const snapToIndex = (nextIndex, animate = true) => {
+      const itemWidth = getItemWidth();
+      index = Math.min(Math.max(nextIndex, 0), Math.max(items.length - 1, 0));
+      currentTranslate = -index * itemWidth;
+      prevTranslate = currentTranslate;
+      track.style.transition = animate ? "transform 0.45s cubic-bezier(0.22, 0.61, 0.36, 1)" : "none";
+      track.style.transform = `translateX(${currentTranslate}px)`;
+    };
 
-    next.addEventListener("click", () => {
-      index = Math.min(index + 1, items.length - 1);
-      update();
-    });
+    const update = () => {
+      snapToIndex(index, true);
+    };
 
-    let startX = 0;
-    let isPointerDown = false;
+    if (prev) {
+      prev.addEventListener("click", () => {
+        index = Math.max(index - 1, 0);
+        update();
+      });
+    }
+
+    if (next) {
+      next.addEventListener("click", () => {
+        index = Math.min(index + 1, items.length - 1);
+        update();
+      });
+    }
 
     const onPointerDown = (event) => {
       if (event.target.closest("button")) return;
+      if (!items.length) return;
       isPointerDown = true;
       startX = event.clientX;
+      lastX = startX;
+      lastTime = performance.now();
+      velocity = 0;
+      track.style.transition = "none";
+      carousel.setPointerCapture(event.pointerId);
     };
 
-    const onPointerUp = (event) => {
+    const onPointerMove = (event) => {
+      if (!isPointerDown) return;
+      const currentX = event.clientX;
+      const diff = currentX - startX;
+      currentTranslate = prevTranslate + diff;
+      track.style.transform = `translateX(${currentTranslate}px)`;
+      const now = performance.now();
+      velocity = (currentX - lastX) / Math.max(now - lastTime, 16);
+      lastX = currentX;
+      lastTime = now;
+    };
+
+    const onPointerUp = () => {
       if (!isPointerDown) return;
       isPointerDown = false;
-      const diff = event.clientX - startX;
-      if (Math.abs(diff) < 40) return;
-      if (diff > 0) {
-        index = Math.max(index - 1, 0);
-      } else {
-        index = Math.min(index + 1, items.length - 1);
-      }
-      update();
+      const itemWidth = getItemWidth();
+      const momentum = velocity * 260;
+      currentTranslate += momentum;
+      const nextIndex = itemWidth ? Math.round(-currentTranslate / itemWidth) : 0;
+      snapToIndex(nextIndex, true);
     };
 
     carousel.addEventListener("pointerdown", onPointerDown);
+    carousel.addEventListener("pointermove", onPointerMove);
     carousel.addEventListener("pointerup", onPointerUp);
-    carousel.addEventListener("pointercancel", () => {
-      isPointerDown = false;
-    });
-    carousel.addEventListener("pointerleave", () => {
-      if (isPointerDown) {
-        isPointerDown = false;
-      }
-    });
+    carousel.addEventListener("pointercancel", onPointerUp);
+    carousel.addEventListener("pointerleave", onPointerUp);
+    window.addEventListener("resize", () => snapToIndex(index, false));
   });
 
   const getCart = () => {
@@ -154,46 +188,114 @@
     updateCartCount();
   };
 
-  const renderCourseList = () => {
-    const list = $('[data-course-list]');
-    if (!list || !window.CourseData) return;
-    const vendorId = list.dataset.vendor;
-    const courses = window.CourseData.courses[vendorId] || [];
-    const vendorName = (window.CourseData.vendors || []).find((vendor) => vendor.id === vendorId)?.name || vendorId;
-    const courseMap = new Map(
-      courses.map((course) => {
-        const uid = `${vendorId}-${course.id}`;
-        return [uid, { ...course, uid, vendorId, vendorName }];
-      })
-    );
-    list.innerHTML = courses
-      .map((course) => {
-        const uid = `${vendorId}-${course.id}`;
-        return `
-          <article class="course-card fade-in">
-            <div class="tag">${vendorName}</div>
-            <h3>${course.title}</h3>
-            <p>${course.focus}</p>
-            <div class="course-meta">
-              <span>${course.duration}</span>
-              <span>${course.delivery}</span>
-            </div>
-            <div class="price">$${course.price.toLocaleString()}</div>
-            <button class="btn btn-primary" data-add-to-cart data-course-id="${uid}">Add to cart</button>
-          </article>
-        `;
-      })
-      .join("");
+  const renderVendorCourseLists = () => {
+    const lists = $$('[data-course-list]');
+    if (!lists.length || !window.CourseData) return;
 
-    $$("[data-add-to-cart]", list).forEach((button) => {
-      button.addEventListener("click", () => {
-        const courseId = button.dataset.courseId;
-        const course = courseMap.get(courseId);
-        if (course) addToCart(course);
-      });
+    const vendorLookup = new Map((window.CourseData.vendors || []).map((vendor) => [vendor.id, vendor.name]));
+
+    lists.forEach((list) => {
+      const vendorId = list.dataset.vendor;
+      const scope = list.dataset.vendorScope || vendorId;
+      const courses = window.CourseData.courses[vendorId] || [];
+      const vendorName = vendorLookup.get(vendorId) || vendorId;
+      const courseMap = new Map(
+        courses.map((course) => {
+          const uid = `${vendorId}-${course.id}`;
+          return [uid, { ...course, uid, vendorId, vendorName }];
+        })
+      );
+
+      const controls = document.querySelector(`[data-vendor-filter-controls][data-vendor-scope="${scope}"]`);
+      const searchInput = controls?.querySelector('[data-vendor-search]');
+      const searchBtn = controls?.querySelector('[data-vendor-search-btn]');
+      const levelSelect = controls?.querySelector('[data-vendor-level]');
+      const deliverySelect = controls?.querySelector('[data-vendor-delivery]');
+      const countEl = document.querySelector(`[data-vendor-count][data-vendor-scope="${scope}"]`);
+      const emptyState = document.querySelector(`[data-vendor-empty][data-vendor-scope="${scope}"]`);
+
+      const unique = (items) => Array.from(new Set(items)).filter(Boolean);
+      if (levelSelect) {
+        levelSelect.innerHTML = ['<option value="">All levels</option>']
+          .concat(unique(courses.map((course) => course.level)).map((level) => `<option value="${level}">${level}</option>`))
+          .join("");
+      }
+      if (deliverySelect) {
+        deliverySelect.innerHTML = ['<option value="">All delivery types</option>']
+          .concat(unique(courses.map((course) => course.delivery)).map((delivery) => `<option value="${delivery}">${delivery}</option>`))
+          .join("");
+      }
+
+      const render = () => {
+        const search = searchInput?.value.trim().toLowerCase() || "";
+        const level = levelSelect?.value || "";
+        const delivery = deliverySelect?.value || "";
+
+        const filtered = courses.filter((course) => {
+          const matchesSearch =
+            !search ||
+            course.title.toLowerCase().includes(search) ||
+            course.focus.toLowerCase().includes(search);
+          const matchesLevel = !level || course.level === level;
+          const matchesDelivery = !delivery || course.delivery === delivery;
+          return matchesSearch && matchesLevel && matchesDelivery;
+        });
+
+        if (countEl) {
+          countEl.textContent = `${filtered.length} courses`;
+        }
+
+        list.innerHTML = filtered
+          .map((course) => {
+            const uid = `${vendorId}-${course.id}`;
+            return `
+              <article class="course-card fade-in">
+                <div class="tag">${course.level}</div>
+                <h3>${course.title}</h3>
+                <p>${course.focus}</p>
+                <div class="course-meta">
+                  <span>${course.duration}</span>
+                  <span>${course.delivery}</span>
+                </div>
+                <div class="price">$${course.price.toLocaleString()}</div>
+                <button class="btn btn-primary" data-add-to-cart data-course-id="${uid}">Add to cart</button>
+              </article>
+            `;
+          })
+          .join("");
+
+        if (emptyState) {
+          emptyState.style.display = filtered.length ? "none" : "block";
+        }
+
+        $$("[data-add-to-cart]", list).forEach((button) => {
+          button.addEventListener("click", () => {
+            const courseId = button.dataset.courseId;
+            const course = courseMap.get(courseId);
+            if (course) addToCart(course);
+          });
+        });
+
+        $$(".fade-in", list).forEach((el) => fadeObserver.observe(el));
+      };
+
+      if (searchInput) {
+        searchInput.addEventListener("input", render);
+        searchInput.addEventListener("keydown", (event) => {
+          if (event.key === "Enter") {
+            event.preventDefault();
+            render();
+          }
+        });
+      }
+      if (searchBtn) {
+        searchBtn.addEventListener("click", render);
+      }
+      if (levelSelect) levelSelect.addEventListener("change", render);
+      if (deliverySelect) deliverySelect.addEventListener("change", render);
+
+      render();
     });
-
-    $$(".fade-in", list).forEach((el) => fadeObserver.observe(el));
   };
 
   const renderCourseFinder = () => {
@@ -459,28 +561,58 @@
       }
     };
 
+    const parseDuration = (value) => {
+      const match = value?.match(/(\\d+)/);
+      return match ? Number(match[1]) : 0;
+    };
+
     const getRecommendations = () => {
       const focus = focusField?.value || "";
       const audience = audienceField?.value || "";
+      const timeline = form.querySelector('select[name="timeline"]')?.value || "";
       const config = focusMap[focus] || { vendors: [], keywords: [] };
-      let filtered = allCourses.filter(
-        (course) =>
-          config.vendors.includes(course.vendorId) ||
-          config.keywords.some((keyword) => course.title.includes(keyword) || course.focus.includes(keyword))
-      );
 
-      if (audience === "Individual learners") {
-        filtered = filtered.filter((course) => ["ai-certs", "microsoft"].includes(course.vendorId));
-      }
-      if (audience === "Executives") {
-        filtered = filtered.filter((course) => ["adoptify-ai", "pmi"].includes(course.vendorId));
-      }
+      const scored = allCourses.map((course) => {
+        let score = 0;
+        const reasons = [];
+        if (config.vendors.includes(course.vendorId)) {
+          score += 4;
+          reasons.push("Focus match");
+        }
+        const keywordHits = config.keywords.filter(
+          (keyword) => course.title.includes(keyword) || course.focus.includes(keyword)
+        );
+        if (keywordHits.length) {
+          score += keywordHits.length * 2;
+          reasons.push("Skill alignment");
+        }
+        if (audience === "Individual learners" && course.vendorId === "ai-certs") {
+          score += 4;
+          reasons.push("Ideal for individuals");
+        }
+        if (audience === "Executives" && ["adoptify-ai", "pmi"].includes(course.vendorId)) {
+          score += 4;
+          reasons.push("Executive ready");
+        }
+        if (audience === "Enterprise teams" && ["microsoft", "aws", "google", "cisco", "pmi"].includes(course.vendorId)) {
+          score += 3;
+          reasons.push("Enterprise fit");
+        }
+        const durationDays = parseDuration(course.duration);
+        if (timeline.startsWith("Immediate") && durationDays && durationDays <= 2) {
+          score += 2;
+          reasons.push("Fast-track");
+        }
+        if (timeline.startsWith("Next quarter") && durationDays && durationDays <= 4) {
+          score += 1;
+          reasons.push("Quarter-ready");
+        }
+        return { ...course, score, reasons: reasons.join(" • ") || "AI curated fit" };
+      });
 
-      if (!filtered.length) {
-        filtered = allCourses.slice(0, 6);
-      }
-
-      return filtered.slice(0, 6);
+      return scored
+        .sort((a, b) => b.score - a.score)
+        .slice(0, 6);
     };
 
     const renderRecommendations = () => {
@@ -498,6 +630,7 @@
                 <span>${course.level}</span>
                 <span>${course.duration}</span>
               </div>
+              <div class="ai-reason">${course.reasons}</div>
               <div class="price">$${course.price.toLocaleString()}</div>
               <input type="checkbox" name="recommended_courses" value="${label}" checked />
             </label>
@@ -703,7 +836,7 @@
   });
 
   updateCartCount();
-  renderCourseList();
+  renderVendorCourseLists();
   renderCourseFinder();
   initLmsWizard();
   renderCart();

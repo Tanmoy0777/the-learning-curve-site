@@ -120,7 +120,22 @@
         <div class="container">
           <h2 class="section-title fade-in">PMI course library</h2>
           <p class="section-subtitle fade-in">Instructor-led PMI certifications for PMOs and delivery leaders.</p>
-          <div class="cards-grid" data-course-list data-vendor="pmi"></div>
+          <div class="filter-meta fade-in">
+  <span data-vendor-count data-vendor-scope="pmi">0 courses</span>
+  <span>Filter PMI courses</span>
+</div>
+<div class="filter-bar fade-in" data-vendor-filter-controls data-vendor-scope="pmi">
+  <input class="filter-input" type="text" placeholder="Search PMI courses" data-vendor-search />
+  <select class="filter-select" data-vendor-level>
+    <option value="">All levels</option>
+  </select>
+  <select class="filter-select" data-vendor-delivery>
+    <option value="">All delivery types</option>
+  </select>
+  <button class="btn btn-primary filter-button" type="button" data-vendor-search-btn>Search</button>
+</div>
+<div class="cards-grid" data-course-list data-vendor="pmi" data-vendor-scope="pmi"></div>
+<div class="empty-state" data-vendor-empty data-vendor-scope="pmi" style="display: none;">No courses match those filters. Try removing a filter.</div>
         </div>
       </section>
 

@@ -120,7 +120,22 @@
         <div class="container">
           <h2 class="section-title fade-in">Google Cloud course library</h2>
           <p class="section-subtitle fade-in">Instructor-led courses for cloud architects, engineers, and data teams.</p>
-          <div class="cards-grid" data-course-list data-vendor="google"></div>
+          <div class="filter-meta fade-in">
+  <span data-vendor-count data-vendor-scope="google">0 courses</span>
+  <span>Filter Google Cloud courses</span>
+</div>
+<div class="filter-bar fade-in" data-vendor-filter-controls data-vendor-scope="google">
+  <input class="filter-input" type="text" placeholder="Search Google Cloud courses" data-vendor-search />
+  <select class="filter-select" data-vendor-level>
+    <option value="">All levels</option>
+  </select>
+  <select class="filter-select" data-vendor-delivery>
+    <option value="">All delivery types</option>
+  </select>
+  <button class="btn btn-primary filter-button" type="button" data-vendor-search-btn>Search</button>
+</div>
+<div class="cards-grid" data-course-list data-vendor="google" data-vendor-scope="google"></div>
+<div class="empty-state" data-vendor-empty data-vendor-scope="google" style="display: none;">No courses match those filters. Try removing a filter.</div>
         </div>
       </section>
 
