@@ -17,7 +17,7 @@
         <nav class="nav">
           <a href="index.html">Home</a>
           <div class="dropdown">
-            <button data-dropdown-toggle>Training</button>
+            <a href="training.html" data-dropdown-toggle>Training</a>
             <div class="dropdown-menu">
               <a href="microsoft.html">Microsoft</a>
               <a href="google.html">Google Cloud</a>
@@ -29,7 +29,7 @@
             </div>
           </div>
           <div class="dropdown">
-            <button data-dropdown-toggle>Solutions</button>
+            <a href="solutions.html" data-dropdown-toggle>Solutions</a>
             <div class="dropdown-menu">
               <a href="solutions.html">Solutions overview</a>
               <a href="solutions-healthcare.html">Healthcare</a>
@@ -40,7 +40,16 @@
             </div>
           </div>
           <a href="pricing.html">Pricing</a>
-          <a href="resources.html">Resources</a>
+          <div class="dropdown">
+            <a href="resources.html" data-dropdown-toggle>Resources</a>
+            <div class="dropdown-menu">
+              <a href="resources.html">Resources overview</a>
+              <a href="resources.html#blogs">Blogs</a>
+              <a href="ebooks.html">eBooks</a>
+              <a href="webinars.html">Webinars</a>
+              <a href="masterclasses.html">Masterclasses</a>
+            </div>
+          </div>
           <a href="passport.html">Passport</a>
           <a href="about.html">About</a>
           <a href="contact.html">Contact</a>
@@ -86,9 +95,9 @@
         </div>
       </section>
 
-      <section class="section">
+      <section class="section" id="blogs">
         <div class="container">
-          <h2 class="section-title fade-in">Featured insights</h2>
+          <h2 class="section-title fade-in">Blogs and research notes</h2>
           <p class="section-subtitle fade-in">Curated articles for CXOs, L&D leaders, and enterprise enablement teams.</p>
           <div class="cards-grid">
             <article class="course-card fade-in">
@@ -143,6 +152,112 @@
         </div>
       </section>
 
+      <section class="section" id="ebooks">
+        <div class="container">
+          <h2 class="section-title fade-in">Executive eBooks</h2>
+          <p class="section-subtitle fade-in">Industry playbooks that pair vendor capabilities with measurable outcomes.</p>
+          <div class="ebooks-grid">
+            <article class="course-card ebook-card fade-in">
+              <div class="ebook-cover">
+                <img src="https://cdn.pixabay.com/photo/2023/08/04/09/40/health-8168788_1280.jpg" alt="Healthcare professional in a hospital" loading="lazy" />
+              </div>
+              <div class="tag">Microsoft + Healthcare</div>
+              <h3>Microsoft Cloud + AI in Healthcare</h3>
+              <p>Clinical workflows, secure data, and measurable patient outcomes with Power Platform and Azure AI.</p>
+              <button class="btn btn-outline" data-modal-open="lead" data-modal-title="Download: Microsoft Cloud + AI in Healthcare" data-download-url="assets/ebooks/microsoft-healthcare-ai-playbook.pdf" data-lead-type="ebook" data-context="Microsoft + Healthcare eBook">Download eBook</button>
+            </article>
+            <article class="course-card ebook-card fade-in">
+              <div class="ebook-cover">
+                <img src="https://cdn.pixabay.com/photo/2016/04/21/09/23/bussiness-1342881_1280.jpg" alt="Financial planning and calculator" loading="lazy" />
+              </div>
+              <div class="tag">AWS + Financial Services</div>
+              <h3>AWS for Financial Services Modernization</h3>
+              <p>Risk-aware modernization, AI-led insight, and compliance-ready cloud enablement.</p>
+              <button class="btn btn-outline" data-modal-open="lead" data-modal-title="Download: AWS Financial Services Modernization" data-download-url="assets/ebooks/aws-financial-services-modernization.pdf" data-lead-type="ebook" data-context="AWS Financial Services eBook">Download eBook</button>
+            </article>
+            <article class="course-card ebook-card fade-in">
+              <div class="ebook-cover">
+                <img src="https://cdn.pixabay.com/photo/2015/07/05/11/56/store-832188_1280.jpg" alt="Retail storefront" loading="lazy" />
+              </div>
+              <div class="tag">Google Cloud + Retail</div>
+              <h3>Google Cloud for Retail Growth</h3>
+              <p>Personalization, demand forecasting, and omnichannel acceleration through AI-native analytics.</p>
+              <button class="btn btn-outline" data-modal-open="lead" data-modal-title="Download: Google Cloud for Retail Growth" data-download-url="assets/ebooks/google-retail-growth.pdf" data-lead-type="ebook" data-context="Google Cloud Retail eBook">Download eBook</button>
+            </article>
+          </div>
+          <div class="section-actions">
+            <a class="btn btn-primary" href="ebooks.html">View all eBooks</a>
+            <a class="btn btn-ghost" href="contact.html">Request a custom playbook</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="webinars">
+        <div class="container">
+          <h2 class="section-title fade-in">Webinars</h2>
+          <p class="section-subtitle fade-in">Live sessions and on-demand insights for enterprise learning leaders.</p>
+          <div class="cards-grid">
+            <article class="course-card fade-in">
+              <div class="tag">March 19, 2026</div>
+              <h3>AI adoption scorecards for enterprise leadership</h3>
+              <p>Build KPIs, governance, and ROI tracking for AI programs across business units.</p>
+              <div class="course-meta">
+                <span>AI strategy</span>
+                <span>Speaker: Maya Ortiz</span>
+              </div>
+              <button class="btn btn-outline" data-modal-open="lead" data-modal-title="Register: AI adoption scorecards" data-lead-type="webinar" data-context="AI adoption scorecards webinar">Register</button>
+            </article>
+            <article class="course-card fade-in">
+              <div class="tag">Recorded Jan 22, 2026</div>
+              <h3>Cloud cost optimization playbook</h3>
+              <p>FinOps routines to drive savings while scaling cloud adoption.</p>
+              <div class="course-meta">
+                <span>FinOps</span>
+                <span>Speaker: Keisha Morgan</span>
+              </div>
+              <button class="btn btn-outline" data-modal-open="lead" data-modal-title="Access: Cloud cost optimization" data-lead-type="webinar" data-context="Cloud cost optimization webinar">View recording</button>
+            </article>
+          </div>
+          <div class="section-actions">
+            <a class="btn btn-primary" href="webinars.html">View all webinars</a>
+            <a class="btn btn-ghost" href="contact.html">Schedule a private session</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="masterclasses">
+        <div class="container">
+          <h2 class="section-title fade-in">Masterclasses</h2>
+          <p class="section-subtitle fade-in">Deep, instructor-led intensives for leadership teams.</p>
+          <div class="cards-grid">
+            <article class="course-card fade-in">
+              <div class="tag">3 sessions · April 24, 2026</div>
+              <h3>Enterprise AI adoption leadership lab</h3>
+              <p>Governance, KPI design, and operating model setup with executive peers.</p>
+              <div class="course-meta">
+                <span>AI strategy</span>
+                <span>Speaker: Claire Jensen</span>
+              </div>
+              <button class="btn btn-outline" data-modal-open="lead" data-modal-title="Reserve: AI adoption leadership lab" data-lead-type="masterclass" data-context="AI adoption leadership lab">Reserve seat</button>
+            </article>
+            <article class="course-card fade-in">
+              <div class="tag">Recorded Jan 5, 2026</div>
+              <h3>Public sector cyber resilience lab</h3>
+              <p>Zero trust readiness, incident response, and security posture improvements.</p>
+              <div class="course-meta">
+                <span>Public sector</span>
+                <span>Speaker: Marcus Lee</span>
+              </div>
+              <button class="btn btn-outline" data-modal-open="lead" data-modal-title="Access: Public sector cyber lab" data-lead-type="masterclass" data-context="Public sector cyber resilience lab">View masterclass</button>
+            </article>
+          </div>
+          <div class="section-actions">
+            <a class="btn btn-primary" href="masterclasses.html">View all masterclasses</a>
+            <a class="btn btn-ghost" href="contact.html">Design a masterclass</a>
+          </div>
+        </div>
+      </section>
+
     </main>
 
     <footer>
@@ -174,6 +289,23 @@
         </div>
       </div>
     </footer>
+  </div>
+
+  <div class="modal" data-modal="lead">
+    <div class="modal-overlay" data-modal-overlay></div>
+    <div class="modal-content">
+      <button class="modal-close" type="button" data-modal-close aria-label="Close">×</button>
+      <h3 data-modal-title>Access the resource</h3>
+      <p>Share your details and we will send the resource directly to you.</p>
+      <form class="form-grid" data-lead-form data-lead-type="resource">
+        <input type="text" name="full_name" placeholder="Full name" required />
+        <input type="email" name="email" placeholder="Work email" required />
+        <input type="text" name="company" placeholder="Company" required />
+        <input type="text" name="role" placeholder="Role or function" />
+        <input type="hidden" name="context" value="" />
+        <button class="btn btn-primary" type="submit">Submit</button>
+      </form>
+    </div>
   </div>
 
   <script src="assets/js/data.js"></script>

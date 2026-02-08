@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>eBooks | The Learning Curve</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Sora:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/css/styles.css" />
+</head>
+<body>
+  <div class="page">
+    <header class="site-header">
+      <div class="container nav-wrap">
+        <a class="logo" href="index.html">The Learning Curve</a>
+        <nav class="nav">
+          <a href="index.html">Home</a>
+          <div class="dropdown">
+            <a href="training.html" data-dropdown-toggle>Training</a>
+            <div class="dropdown-menu">
+              <a href="microsoft.html">Microsoft</a>
+              <a href="google.html">Google Cloud</a>
+              <a href="aws.html">AWS</a>
+              <a href="cisco.html">Cisco</a>
+              <a href="pmi.html">PMI</a>
+              <a href="ai-certs.html">AI Certs</a>
+              <a href="adoptify-ai.html">Adoptify AI</a>
+            </div>
+          </div>
+          <div class="dropdown">
+            <a href="solutions.html" data-dropdown-toggle>Solutions</a>
+            <div class="dropdown-menu">
+              <a href="solutions.html">Solutions overview</a>
+              <a href="solutions-healthcare.html">Healthcare</a>
+              <a href="solutions-financial-services.html">Financial services</a>
+              <a href="solutions-manufacturing.html">Manufacturing</a>
+              <a href="solutions-public-sector.html">Public sector & defense</a>
+              <a href="solutions-retail.html">Retail & consumer</a>
+            </div>
+          </div>
+          <a href="pricing.html">Pricing</a>
+          <div class="dropdown">
+            <a href="resources.html" data-dropdown-toggle>Resources</a>
+            <div class="dropdown-menu">
+              <a href="resources.html">Resources overview</a>
+              <a href="resources.html#blogs">Blogs</a>
+              <a href="ebooks.html">eBooks</a>
+              <a href="webinars.html">Webinars</a>
+              <a href="masterclasses.html">Masterclasses</a>
+            </div>
+          </div>
+          <a href="passport.html">Passport</a>
+          <a href="about.html">About</a>
+          <a href="contact.html">Contact</a>
+        </nav>
+        <div class="nav-cta">
+          <a class="btn btn-ghost" href="contact.html">Talk to Sales</a>
+          <a class="btn btn-primary" href="cart.html">Cart <span class="cart-count" data-cart-count>0</span></a>
+        </div>
+        <button class="nav-toggle" data-nav-toggle aria-label="Toggle navigation">☰</button>
+      </div>
+    </header>
+
+    <main>
+      <section class="section">
+        <div class="container hero">
+          <div class="fade-in">
+            <span class="badge">eBooks</span>
+            <h1>Executive playbooks that connect learning, AI adoption, and industry outcomes.</h1>
+            <p>
+              Download deep-dive briefs that pair vendor capabilities with industry priorities. Each eBook is designed for
+              enterprise leaders who need fast clarity, measurable ROI, and a scalable learning roadmap.
+            </p>
+            <div class="hero-actions">
+              <a class="btn btn-primary" href="contact.html">Request a custom playbook</a>
+              <a class="btn btn-ghost" href="training.html">Explore training library</a>
+            </div>
+          </div>
+          <div class="hero-visuals">
+            <div class="dashboard fade-in">
+              <div class="dashboard-inner">
+                <h3>Leadership signal index</h3>
+                <p style="margin: 0; color: var(--ink-3);">Where enterprise learning budgets are moving in 2026.</p>
+                <svg class="chart-line" width="100%" height="140" viewBox="0 0 420 140">
+                  <defs>
+                    <linearGradient id="grad-line-ebooks" x1="0" x2="1" y1="0" y2="1">
+                      <stop offset="0%" stop-color="#dd2c00" />
+                      <stop offset="100%" stop-color="#ff9100" />
+                    </linearGradient>
+                  </defs>
+                  <path d="M10 120 C90 25, 160 150, 240 60 C320 20, 360 110, 410 30" stroke="url(#grad-line-ebooks)" />
+                </svg>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container">
+          <h2 class="section-title fade-in">Downloadable enterprise playbooks</h2>
+          <p class="section-subtitle fade-in">Each eBook includes executive insights, recommended learning paths, and KPIs to track.</p>
+          <div class="ebooks-grid">
+            <article class="course-card ebook-card fade-in">
+              <div class="ebook-cover">
+                <img src="https://cdn.pixabay.com/photo/2023/08/04/09/40/health-8168788_1280.jpg" alt="Healthcare professional in a hospital" loading="lazy" />
+              </div>
+              <div class="tag">Microsoft + Healthcare</div>
+              <h3>Microsoft Cloud + AI in Healthcare</h3>
+              <p>Clinical workflows, secure data, and measurable patient outcomes with Power Platform and Azure AI.</p>
+              <div class="course-meta">
+                <span>24 pages</span>
+                <span>PDF</span>
+                <span>Updated 2026</span>
+              </div>
+              <button class="btn btn-outline" data-modal-open="lead" data-modal-title="Download: Microsoft Cloud + AI in Healthcare" data-download-url="assets/ebooks/microsoft-healthcare-ai-playbook.pdf" data-lead-type="ebook" data-context="Microsoft + Healthcare eBook">Download eBook</button>
+            </article>
+            <article class="course-card ebook-card fade-in">
+              <div class="ebook-cover">
+                <img src="https://cdn.pixabay.com/photo/2016/04/21/09/23/bussiness-1342881_1280.jpg" alt="Financial planning and calculator" loading="lazy" />
+              </div>
+              <div class="tag">AWS + Financial Services</div>
+              <h3>AWS for Financial Services Modernization</h3>
+              <p>Modernize core systems with risk-aware cloud adoption, data governance, and AI-led customer insight.</p>
+              <div class="course-meta">
+                <span>22 pages</span>
+                <span>PDF</span>
+                <span>Updated 2026</span>
+              </div>
+              <button class="btn btn-outline" data-modal-open="lead" data-modal-title="Download: AWS Financial Services Modernization" data-download-url="assets/ebooks/aws-financial-services-modernization.pdf" data-lead-type="ebook" data-context="AWS Financial Services eBook">Download eBook</button>
+            </article>
+            <article class="course-card ebook-card fade-in">
+              <div class="ebook-cover">
+                <img src="https://cdn.pixabay.com/photo/2015/07/05/11/56/store-832188_1280.jpg" alt="Retail storefront" loading="lazy" />
+              </div>
+              <div class="tag">Google Cloud + Retail</div>
+              <h3>Google Cloud for Retail Growth</h3>
+              <p>Personalization, demand forecasting, and omnichannel acceleration through AI-native analytics.</p>
+              <div class="course-meta">
+                <span>26 pages</span>
+                <span>PDF</span>
+                <span>Updated 2026</span>
+              </div>
+              <button class="btn btn-outline" data-modal-open="lead" data-modal-title="Download: Google Cloud for Retail Growth" data-download-url="assets/ebooks/google-retail-growth.pdf" data-lead-type="ebook" data-context="Google Cloud Retail eBook">Download eBook</button>
+            </article>
+            <article class="course-card ebook-card fade-in">
+              <div class="ebook-cover">
+                <img src="https://cdn.pixabay.com/photo/2020/07/11/23/36/meeting-5395615_1280.jpg" alt="Government meeting discussion" loading="lazy" />
+              </div>
+              <div class="tag">Cisco + Public Sector</div>
+              <h3>Cisco Secure Networks for Public Sector</h3>
+              <p>Mission-ready networks, zero trust programs, and operational resilience for government agencies.</p>
+              <div class="course-meta">
+                <span>20 pages</span>
+                <span>PDF</span>
+                <span>Updated 2026</span>
+              </div>
+              <button class="btn btn-outline" data-modal-open="lead" data-modal-title="Download: Cisco Public Sector Security" data-download-url="assets/ebooks/cisco-public-sector.pdf" data-lead-type="ebook" data-context="Cisco Public Sector eBook">Download eBook</button>
+            </article>
+            <article class="course-card ebook-card fade-in">
+              <div class="ebook-cover">
+                <img src="https://cdn.pixabay.com/photo/2016/07/14/09/09/factory-1516381_1280.jpg" alt="Manufacturing facility" loading="lazy" />
+              </div>
+              <div class="tag">PMI + Manufacturing</div>
+              <h3>PMI Portfolio Management in Manufacturing</h3>
+              <p>Improve capital efficiency, delivery governance, and plant modernization performance.</p>
+              <div class="course-meta">
+                <span>23 pages</span>
+                <span>PDF</span>
+                <span>Updated 2026</span>
+              </div>
+              <button class="btn btn-outline" data-modal-open="lead" data-modal-title="Download: PMI Portfolio Management" data-download-url="assets/ebooks/pmi-manufacturing-portfolio.pdf" data-lead-type="ebook" data-context="PMI Manufacturing eBook">Download eBook</button>
+            </article>
+            <article class="course-card ebook-card fade-in">
+              <div class="ebook-cover">
+                <img src="https://cdn.pixabay.com/photo/2019/09/27/08/54/knowledge-train-4507899_1280.jpg" alt="Training workshop" loading="lazy" />
+              </div>
+              <div class="tag">AI Certs + Workforce</div>
+              <h3>AI Certs for Workforce Literacy</h3>
+              <p>Enterprise-wide AI fluency for every business unit, from copilots to policy awareness.</p>
+              <div class="course-meta">
+                <span>21 pages</span>
+                <span>PDF</span>
+                <span>Updated 2026</span>
+              </div>
+              <button class="btn btn-outline" data-modal-open="lead" data-modal-title="Download: AI Certs Workforce Literacy" data-download-url="assets/ebooks/ai-certs-workforce-literacy.pdf" data-lead-type="ebook" data-context="AI Certs Workforce Literacy eBook">Download eBook</button>
+            </article>
+            <article class="course-card ebook-card fade-in">
+              <div class="ebook-cover">
+                <img src="https://cdn.pixabay.com/photo/2017/05/04/16/37/meeting-2284501_1280.jpg" alt="Leadership strategy session" loading="lazy" />
+              </div>
+              <div class="tag">Adoptify AI + Governance</div>
+              <h3>Adoptify AI Governance Blueprint</h3>
+              <p>Policy, operating model, and safe AI scale-up for regulated industries.</p>
+              <div class="course-meta">
+                <span>25 pages</span>
+                <span>PDF</span>
+                <span>Updated 2026</span>
+              </div>
+              <button class="btn btn-outline" data-modal-open="lead" data-modal-title="Download: Adoptify AI Governance Blueprint" data-download-url="assets/ebooks/adoptify-ai-governance.pdf" data-lead-type="ebook" data-context="Adoptify AI Governance eBook">Download eBook</button>
+            </article>
+            <article class="course-card ebook-card fade-in">
+              <div class="ebook-cover">
+                <img src="https://cdn.pixabay.com/photo/2013/03/04/21/01/server-90389_1280.jpg" alt="Server room" loading="lazy" />
+              </div>
+              <div class="tag">Microsoft + Federal</div>
+              <h3>Microsoft Hybrid Cloud for Federal Missions</h3>
+              <p>Secure collaboration, data residency, and mission continuity across hybrid environments.</p>
+              <div class="course-meta">
+                <span>24 pages</span>
+                <span>PDF</span>
+                <span>Updated 2026</span>
+              </div>
+              <button class="btn btn-outline" data-modal-open="lead" data-modal-title="Download: Microsoft Hybrid Cloud" data-download-url="assets/ebooks/microsoft-federal-hybrid.pdf" data-lead-type="ebook" data-context="Microsoft Federal Hybrid eBook">Download eBook</button>
+            </article>
+            <article class="course-card ebook-card fade-in">
+              <div class="ebook-cover">
+                <img src="https://cdn.pixabay.com/photo/2018/06/17/09/19/cyber-security-3480163_1280.jpg" alt="Cybersecurity visualization" loading="lazy" />
+              </div>
+              <div class="tag">AWS + Cyber Resilience</div>
+              <h3>AWS Cyber Resilience for Enterprises</h3>
+              <p>Zero trust foundations, incident response playbooks, and resilience drills for enterprise teams.</p>
+              <div class="course-meta">
+                <span>22 pages</span>
+                <span>PDF</span>
+                <span>Updated 2026</span>
+              </div>
+              <button class="btn btn-outline" data-modal-open="lead" data-modal-title="Download: AWS Cyber Resilience" data-download-url="assets/ebooks/aws-cyber-resilience.pdf" data-lead-type="ebook" data-context="AWS Cyber Resilience eBook">Download eBook</button>
+            </article>
+            <article class="course-card ebook-card fade-in">
+              <div class="ebook-cover">
+                <img src="https://cdn.pixabay.com/photo/2022/08/15/19/04/data-center-7388620_1280.jpg" alt="Data center operations" loading="lazy" />
+              </div>
+              <div class="tag">Google Cloud + Supply Chain</div>
+              <h3>Google Cloud Supply Chain Analytics</h3>
+              <p>Forecasting, visibility, and cost-to-serve optimization powered by modern data stacks.</p>
+              <div class="course-meta">
+                <span>23 pages</span>
+                <span>PDF</span>
+                <span>Updated 2026</span>
+              </div>
+              <button class="btn btn-outline" data-modal-open="lead" data-modal-title="Download: Google Cloud Supply Chain Analytics" data-download-url="assets/ebooks/google-supply-chain-analytics.pdf" data-lead-type="ebook" data-context="Google Cloud Supply Chain eBook">Download eBook</button>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container surface fade-in">
+          <h2 class="section-title">Need a custom executive brief?</h2>
+          <p class="section-subtitle">We can tailor a playbook to your industry, tools, and business priorities in under 10 days.</p>
+          <div class="section-actions">
+            <a class="btn btn-primary" href="contact.html">Request a bespoke brief</a>
+            <a class="btn btn-ghost" href="training.html">Browse training library</a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="container footer-grid">
+        <div>
+          <strong>The Learning Curve</strong>
+          <p>US-based enterprise learning partner focused on customizable, instructor-led outcomes.</p>
+        </div>
+        <div>
+          <strong>Training</strong>
+          <a href="microsoft.html">Microsoft</a><br />
+          <a href="google.html">Google Cloud</a><br />
+          <a href="aws.html">AWS</a><br />
+          <a href="cisco.html">Cisco</a><br />
+          <a href="pmi.html">PMI</a>
+        </div>
+        <div>
+          <strong>Programs</strong>
+          <a href="ai-certs.html">AI Certs</a><br />
+          <a href="adoptify-ai.html">Adoptify AI</a><br />
+          <a href="passport.html">Trajectory Passport</a>
+        </div>
+        <div>
+          <strong>Company</strong>
+          <a href="about.html">About</a><br />
+          <a href="contact.html">Contact</a><br />
+          <a href="pricing.html">Pricing</a><br />
+          <a href="resources.html">Resources</a>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <div class="modal" data-modal="lead">
+    <div class="modal-overlay" data-modal-overlay></div>
+    <div class="modal-content">
+      <button class="modal-close" type="button" data-modal-close aria-label="Close">×</button>
+      <h3 data-modal-title>Download the eBook</h3>
+      <p>Share your details and we will send you the PDF instantly.</p>
+      <form class="form-grid" data-lead-form data-lead-type="ebook">
+        <input type="text" name="full_name" placeholder="Full name" required />
+        <input type="email" name="email" placeholder="Work email" required />
+        <input type="text" name="company" placeholder="Company" required />
+        <input type="text" name="role" placeholder="Role or function" />
+        <input type="hidden" name="context" value="" />
+        <button class="btn btn-primary" type="submit">Send my eBook</button>
+      </form>
+    </div>
+  </div>
+
+  <script src="assets/js/data.js"></script>
+  <script src="assets/js/config.js"></script>
+  <script src="assets/js/app.js"></script>
+</body>
+</html>

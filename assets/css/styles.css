@@ -144,6 +144,13 @@ button {
   color: var(--ink-2);
 }
 
+.nav > a,
+.nav > .dropdown {
+  display: inline-flex;
+  align-items: center;
+  height: 34px;
+}
+
 .nav a,
 .nav button {
   display: inline-flex;
@@ -218,7 +225,8 @@ button {
   height: 34px;
 }
 
-.dropdown > button {
+.dropdown > button,
+.dropdown > a {
   height: 34px;
   display: inline-flex;
   align-items: center;
@@ -756,6 +764,47 @@ button {
   grid-auto-rows: 1fr;
 }
 
+.ebooks-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 24px;
+}
+
+.ebook-card {
+  gap: 16px;
+}
+
+.ebook-cover {
+  position: relative;
+  border-radius: 16px;
+  overflow: hidden;
+  height: 160px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(12, 12, 12, 0.6);
+}
+
+.ebook-cover img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: saturate(0.9) contrast(1.02);
+}
+
+.ebook-cover::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(8, 8, 8, 0.3), rgba(255, 145, 0, 0.28));
+  mix-blend-mode: screen;
+}
+
+.section-actions {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-top: 16px;
+}
+
 .filter-meta {
   display: flex;
   justify-content: space-between;
@@ -1082,13 +1131,61 @@ footer {
   flex-wrap: wrap;
 }
 
+.modal {
+  position: fixed;
+  inset: 0;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 200;
+}
+
+.modal.is-open {
+  display: flex;
+}
+
+.modal-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(2, 2, 2, 0.76);
+  backdrop-filter: blur(6px);
+}
+
+.modal-content {
+  position: relative;
+  z-index: 2;
+  width: min(520px, calc(100% - 32px));
+  background: var(--surface);
+  border-radius: 20px;
+  padding: 28px;
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-2);
+}
+
+.modal-close {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  background: rgba(10, 10, 10, 0.8);
+  color: var(--ink-1);
+  cursor: pointer;
+}
+
+.modal-content h3 {
+  margin-top: 0;
+}
+
 @media (max-width: 900px) {
   .nav {
     display: none;
     position: absolute;
     top: 70px;
     right: 4%;
-    background: rgba(255, 255, 255, 0.95);
+    background: rgba(8, 8, 8, 0.96);
     padding: 20px;
     border-radius: 16px;
     box-shadow: var(--shadow-1);

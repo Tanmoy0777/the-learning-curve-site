@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Webinars | The Learning Curve</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Sora:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/css/styles.css" />
+</head>
+<body>
+  <div class="page">
+    <header class="site-header">
+      <div class="container nav-wrap">
+        <a class="logo" href="index.html">The Learning Curve</a>
+        <nav class="nav">
+          <a href="index.html">Home</a>
+          <div class="dropdown">
+            <a href="training.html" data-dropdown-toggle>Training</a>
+            <div class="dropdown-menu">
+              <a href="microsoft.html">Microsoft</a>
+              <a href="google.html">Google Cloud</a>
+              <a href="aws.html">AWS</a>
+              <a href="cisco.html">Cisco</a>
+              <a href="pmi.html">PMI</a>
+              <a href="ai-certs.html">AI Certs</a>
+              <a href="adoptify-ai.html">Adoptify AI</a>
+            </div>
+          </div>
+          <div class="dropdown">
+            <a href="solutions.html" data-dropdown-toggle>Solutions</a>
+            <div class="dropdown-menu">
+              <a href="solutions.html">Solutions overview</a>
+              <a href="solutions-healthcare.html">Healthcare</a>
+              <a href="solutions-financial-services.html">Financial services</a>
+              <a href="solutions-manufacturing.html">Manufacturing</a>
+              <a href="solutions-public-sector.html">Public sector & defense</a>
+              <a href="solutions-retail.html">Retail & consumer</a>
+            </div>
+          </div>
+          <a href="pricing.html">Pricing</a>
+          <div class="dropdown">
+            <a href="resources.html" data-dropdown-toggle>Resources</a>
+            <div class="dropdown-menu">
+              <a href="resources.html">Resources overview</a>
+              <a href="resources.html#blogs">Blogs</a>
+              <a href="ebooks.html">eBooks</a>
+              <a href="webinars.html">Webinars</a>
+              <a href="masterclasses.html">Masterclasses</a>
+            </div>
+          </div>
+          <a href="passport.html">Passport</a>
+          <a href="about.html">About</a>
+          <a href="contact.html">Contact</a>
+        </nav>
+        <div class="nav-cta">
+          <a class="btn btn-ghost" href="contact.html">Talk to Sales</a>
+          <a class="btn btn-primary" href="cart.html">Cart <span class="cart-count" data-cart-count>0</span></a>
+        </div>
+        <button class="nav-toggle" data-nav-toggle aria-label="Toggle navigation">☰</button>
+      </div>
+    </header>
+
+    <main>
+      <section class="section">
+        <div class="container hero">
+          <div class="fade-in">
+            <span class="badge">Webinars</span>
+            <h1>Live sessions for enterprise leaders navigating AI and cloud adoption.</h1>
+            <p>Register for upcoming sessions or access on-demand recordings curated for CXOs, L&D leaders, and sales enablement teams.</p>
+            <div class="hero-actions">
+              <a class="btn btn-primary" href="contact.html">Request a private briefing</a>
+              <a class="btn btn-ghost" href="resources.html">Explore all resources</a>
+            </div>
+          </div>
+          <div class="hero-visuals">
+            <div class="dashboard fade-in">
+              <div class="dashboard-inner">
+                <h3>Audience pulse</h3>
+                <p style="margin: 0; color: var(--ink-3);">Engagement across industries in Q1-Q2.</p>
+                <svg class="chart-line" width="100%" height="140" viewBox="0 0 420 140">
+                  <defs>
+                    <linearGradient id="grad-line-webinars" x1="0" x2="1" y1="0" y2="1">
+                      <stop offset="0%" stop-color="#dd2c00" />
+                      <stop offset="100%" stop-color="#ff9100" />
+                    </linearGradient>
+                  </defs>
+                  <path d="M10 120 C70 40, 150 150, 230 60 C320 10, 370 110, 410 30" stroke="url(#grad-line-webinars)" />
+                </svg>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container">
+          <h2 class="section-title fade-in">Upcoming webinars</h2>
+          <p class="section-subtitle fade-in">Register to secure your seat and receive the executive brief.</p>
+          <div class="cards-grid">
+            <article class="course-card fade-in">
+              <div class="tag">March 19, 2026</div>
+              <h3>AI adoption scorecards for enterprise leadership</h3>
+              <p>Define KPIs, governance, and ROI dashboards that keep AI programs on track across the business.</p>
+              <div class="course-meta">
+                <span>AI strategy</span>
+                <span>45 mins</span>
+                <span>Speaker: Maya Ortiz</span>
+              </div>
+              <button class="btn btn-outline" data-modal-open="lead" data-modal-title="Register: AI adoption scorecards" data-lead-type="webinar" data-context="AI adoption scorecards webinar">Register</button>
+            </article>
+            <article class="course-card fade-in">
+              <div class="tag">April 9, 2026</div>
+              <h3>Microsoft Power Platform for healthcare operations</h3>
+              <p>How healthcare systems streamline workflows with low-code automation and secure data flows.</p>
+              <div class="course-meta">
+                <span>Healthcare</span>
+                <span>60 mins</span>
+                <span>Speaker: Jordan Lee</span>
+              </div>
+              <button class="btn btn-outline" data-modal-open="lead" data-modal-title="Register: Power Platform healthcare" data-lead-type="webinar" data-context="Power Platform healthcare webinar">Register</button>
+            </article>
+            <article class="course-card fade-in">
+              <div class="tag">May 7, 2026</div>
+              <h3>Cloud modernization in financial services</h3>
+              <p>Risk-aware migration strategies, governance, and team enablement in regulated environments.</p>
+              <div class="course-meta">
+                <span>Financial services</span>
+                <span>50 mins</span>
+                <span>Speaker: Priya Natarajan</span>
+              </div>
+              <button class="btn btn-outline" data-modal-open="lead" data-modal-title="Register: Cloud modernization in finance" data-lead-type="webinar" data-context="Cloud modernization in finance webinar">Register</button>
+            </article>
+            <article class="course-card fade-in">
+              <div class="tag">June 11, 2026</div>
+              <h3>AI certs for enterprise-wide literacy</h3>
+              <p>Build AI fluency across sales, operations, and leadership teams in a single quarter.</p>
+              <div class="course-meta">
+                <span>Workforce</span>
+                <span>40 mins</span>
+                <span>Speaker: Elise Carter</span>
+              </div>
+              <button class="btn btn-outline" data-modal-open="lead" data-modal-title="Register: AI Certs workforce literacy" data-lead-type="webinar" data-context="AI Certs workforce webinar">Register</button>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container">
+          <h2 class="section-title fade-in">On-demand sessions</h2>
+          <p class="section-subtitle fade-in">Request access to the recordings and supporting decks.</p>
+          <div class="cards-grid">
+            <article class="course-card fade-in">
+              <div class="tag">Recorded Dec 12, 2025</div>
+              <h3>AI governance for regulated industries</h3>
+              <p>Build an approval workflow, model registry, and policy framework for safe AI adoption.</p>
+              <div class="course-meta">
+                <span>Compliance</span>
+                <span>55 mins</span>
+                <span>Speaker: Samuel Brooks</span>
+              </div>
+              <button class="btn btn-outline" data-modal-open="lead" data-modal-title="Access: AI governance webinar" data-lead-type="webinar" data-context="AI governance webinar on-demand">View recording</button>
+            </article>
+            <article class="course-card fade-in">
+              <div class="tag">Recorded Jan 22, 2026</div>
+              <h3>Cloud cost optimization playbook</h3>
+              <p>Operating model and FinOps routines to drive savings while scaling usage.</p>
+              <div class="course-meta">
+                <span>FinOps</span>
+                <span>48 mins</span>
+                <span>Speaker: Keisha Morgan</span>
+              </div>
+              <button class="btn btn-outline" data-modal-open="lead" data-modal-title="Access: Cloud cost optimization" data-lead-type="webinar" data-context="Cloud cost optimization on-demand">View recording</button>
+            </article>
+            <article class="course-card fade-in">
+              <div class="tag">Recorded Nov 18, 2025</div>
+              <h3>Building the AI learning culture</h3>
+              <p>Design a continuous learning engine that keeps pace with product teams.</p>
+              <div class="course-meta">
+                <span>Culture</span>
+                <span>42 mins</span>
+                <span>Speaker: Daniel Kim</span>
+              </div>
+              <button class="btn btn-outline" data-modal-open="lead" data-modal-title="Access: AI learning culture" data-lead-type="webinar" data-context="AI learning culture webinar">View recording</button>
+            </article>
+            <article class="course-card fade-in">
+              <div class="tag">Recorded Oct 7, 2025</div>
+              <h3>Sales enablement with AI copilots</h3>
+              <p>How revenue teams use AI copilots to shorten cycles and increase win rates.</p>
+              <div class="course-meta">
+                <span>Sales</span>
+                <span>45 mins</span>
+                <span>Speaker: Nina Patel</span>
+              </div>
+              <button class="btn btn-outline" data-modal-open="lead" data-modal-title="Access: Sales enablement with AI" data-lead-type="webinar" data-context="Sales enablement with AI webinar">View recording</button>
+            </article>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="container footer-grid">
+        <div>
+          <strong>The Learning Curve</strong>
+          <p>US-based enterprise learning partner focused on customizable, instructor-led outcomes.</p>
+        </div>
+        <div>
+          <strong>Training</strong>
+          <a href="microsoft.html">Microsoft</a><br />
+          <a href="google.html">Google Cloud</a><br />
+          <a href="aws.html">AWS</a><br />
+          <a href="cisco.html">Cisco</a><br />
+          <a href="pmi.html">PMI</a>
+        </div>
+        <div>
+          <strong>Programs</strong>
+          <a href="ai-certs.html">AI Certs</a><br />
+          <a href="adoptify-ai.html">Adoptify AI</a><br />
+          <a href="passport.html">Trajectory Passport</a>
+        </div>
+        <div>
+          <strong>Company</strong>
+          <a href="about.html">About</a><br />
+          <a href="contact.html">Contact</a><br />
+          <a href="pricing.html">Pricing</a><br />
+          <a href="resources.html">Resources</a>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <div class="modal" data-modal="lead">
+    <div class="modal-overlay" data-modal-overlay></div>
+    <div class="modal-content">
+      <button class="modal-close" type="button" data-modal-close aria-label="Close">×</button>
+      <h3 data-modal-title>Register for the webinar</h3>
+      <p>Share your details and we will confirm your seat with a calendar invite.</p>
+      <form class="form-grid" data-lead-form data-lead-type="webinar">
+        <input type="text" name="full_name" placeholder="Full name" required />
+        <input type="email" name="email" placeholder="Work email" required />
+        <input type="text" name="company" placeholder="Company" required />
+        <input type="text" name="role" placeholder="Role or function" />
+        <input type="hidden" name="context" value="" />
+        <button class="btn btn-primary" type="submit">Confirm seat</button>
+      </form>
+    </div>
+  </div>
+
+  <script src="assets/js/data.js"></script>
+  <script src="assets/js/config.js"></script>
+  <script src="assets/js/app.js"></script>
+</body>
+</html>

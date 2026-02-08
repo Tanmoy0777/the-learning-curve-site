@@ -915,9 +915,64 @@
       };
       await postToN8N(payload);
       form.reset();
-      showFormMessage(form, "<strong>Thanks.</strong> A learning strategist will reach out within 24 hours.");
+      const downloadUrl = form.dataset.downloadUrl;
+      if (downloadUrl) {
+        showFormMessage(form, "<strong>Thanks.</strong> Your download is starting now.");
+        const link = document.createElement("a");
+        link.href = downloadUrl;
+        link.download = "";
+        document.body.appendChild(link);
+        link.click();
+        link.remove();
+      } else {
+        showFormMessage(form, "<strong>Thanks.</strong> A learning strategist will reach out within 24 hours.");
+      }
+
+      const modal = form.closest("[data-modal]");
+      if (modal) {
+        modal.classList.remove("is-open");
+      }
     });
   });
+
+  const initModals = () => {
+    const openButtons = $$("[data-modal-open]");
+    const modals = $$("[data-modal]");
+    if (!openButtons.length || !modals.length) return;
+
+    const closeModal = (modal) => {
+      modal.classList.remove("is-open");
+    };
+
+    modals.forEach((modal) => {
+      const overlay = modal.querySelector("[data-modal-overlay]");
+      const closeButtons = $$("[data-modal-close]", modal);
+      if (overlay) overlay.addEventListener("click", () => closeModal(modal));
+      closeButtons.forEach((btn) => btn.addEventListener("click", () => closeModal(modal)));
+    });
+
+    openButtons.forEach((button) => {
+      button.addEventListener("click", () => {
+        const target = button.dataset.modalOpen;
+        const modal = document.querySelector(`[data-modal=\"${target}\"]`);
+        if (!modal) return;
+        const form = modal.querySelector("[data-lead-form]");
+        if (form) {
+          form.dataset.leadType = button.dataset.leadType || form.dataset.leadType || "lead";
+          form.dataset.downloadUrl = button.dataset.downloadUrl || "";
+          const contextInput = form.querySelector("input[name=\"context\"]");
+          if (contextInput) {
+            contextInput.value = button.dataset.context || "";
+          }
+        }
+        const title = modal.querySelector("[data-modal-title]");
+        if (title && button.dataset.modalTitle) {
+          title.textContent = button.dataset.modalTitle;
+        }
+        modal.classList.add("is-open");
+      });
+    });
+  };
 
   updateCartCount();
   renderVendorCourseLists();
@@ -926,4 +981,5 @@
   addChartAxes();
   renderCart();
   renderCheckout();
+  initModals();
 })();
