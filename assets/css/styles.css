@@ -144,12 +144,17 @@ button {
 
 .nav a,
 .nav button {
+  display: inline-flex;
+  align-items: center;
+  line-height: 1;
+  padding: 6px 0;
   font-weight: 600;
   font-size: 0.95rem;
   color: inherit;
   background: none;
   border: none;
   cursor: pointer;
+  font-family: inherit;
 }
 
 .nav a:hover,
@@ -264,6 +269,43 @@ button {
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 50px;
   align-items: center;
+}
+
+.hero-visuals {
+  display: grid;
+  gap: 18px;
+}
+
+.hero-image-card {
+  border-radius: 24px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  background: var(--surface-2);
+  box-shadow: var(--shadow-1);
+}
+
+.hero-image-card img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.section-image,
+.article-image {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 24px;
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-1);
+}
+
+.section-image {
+  margin: 16px 0 24px;
+}
+
+.article-image {
+  margin-bottom: 20px;
 }
 
 .hero h1 {

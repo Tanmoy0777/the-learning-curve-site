@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="540" viewBox="0 0 960 540" role="img" aria-label="Insights and research visual">
+  <defs>
+    <linearGradient id="bg" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0%" stop-color="#0f1630" />
+      <stop offset="100%" stop-color="#151c3f" />
+    </linearGradient>
+    <linearGradient id="glow" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0%" stop-color="#f6b24f" stop-opacity="0.8" />
+      <stop offset="100%" stop-color="#6b1fd6" stop-opacity="0.6" />
+    </linearGradient>
+  </defs>
+  <rect width="960" height="540" rx="28" fill="url(#bg)" />
+  <circle cx="120" cy="110" r="80" fill="#f6b24f" opacity="0.08" />
+  <circle cx="820" cy="100" r="60" fill="#6b1fd6" opacity="0.12" />
+  <circle cx="820" cy="430" r="90" fill="#f6b24f" opacity="0.1" />
+  <rect x="80" y="260" width="250" height="180" rx="18" fill="#121a3a" stroke="#2a335b" stroke-width="2" />
+  <rect x="100" y="290" width="210" height="12" rx="6" fill="#1e2750" />
+  <rect x="100" y="320" width="140" height="12" rx="6" fill="#1e2750" />
+  <rect x="100" y="350" width="170" height="12" rx="6" fill="#1e2750" />
+  <rect x="100" y="380" width="110" height="12" rx="6" fill="#1e2750" />
+
+  <rect x="420" y="140" width="440" height="260" rx="24" fill="#101733" stroke="#2a335b" stroke-width="2" />
+  <path d="M450 340 C520 240, 610 320, 690 220 C740 170, 790 240, 830 180" stroke="url(#glow)" stroke-width="4" fill="none" />
+  <circle cx="450" cy="340" r="6" fill="#f6b24f" />
+  <circle cx="590" cy="280" r="6" fill="#6b1fd6" />
+  <circle cx="690" cy="220" r="6" fill="#f6b24f" />
+  <circle cx="830" cy="180" r="6" fill="#6b1fd6" />
+
+  <rect x="420" y="420" width="120" height="60" rx="14" fill="#101733" stroke="#2a335b" stroke-width="2" />
+  <rect x="560" y="420" width="120" height="60" rx="14" fill="#101733" stroke="#2a335b" stroke-width="2" />
+  <rect x="700" y="420" width="120" height="60" rx="14" fill="#101733" stroke="#2a335b" stroke-width="2" />
+
+  <rect x="440" y="450" width="80" height="8" rx="4" fill="#f6b24f" opacity="0.7" />
+  <rect x="580" y="450" width="80" height="8" rx="4" fill="#6b1fd6" opacity="0.7" />
+  <rect x="720" y="450" width="80" height="8" rx="4" fill="#f6b24f" opacity="0.7" />
+
+  <rect x="80" y="120" width="260" height="100" rx="20" fill="#0f1736" stroke="#2a335b" stroke-width="2" />
+  <rect x="100" y="150" width="220" height="12" rx="6" fill="#1e2750" />
+  <rect x="100" y="175" width="160" height="12" rx="6" fill="#1e2750" />
+</svg>
