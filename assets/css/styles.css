@@ -400,6 +400,7 @@ button {
   align-items: center;
   gap: 10px;
   white-space: nowrap;
+  position: relative;
 }
 
 .logo-mark {
@@ -420,6 +421,48 @@ button {
 .logo-pmi { background: linear-gradient(135deg, #4a2cff, #8f4bff); }
 .logo-ai { background: linear-gradient(135deg, #21b8a6, #5ce1c8); }
 .logo-adopt { background: linear-gradient(135deg, #ff6a5b, #6b1fd6); }
+
+.logo-name {
+  white-space: nowrap;
+}
+
+.logo-chip::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  bottom: 130%;
+  left: 50%;
+  transform: translateX(-50%) translateY(6px);
+  padding: 8px 12px;
+  border-radius: 10px;
+  background: rgba(12, 16, 30, 0.95);
+  border: 1px solid rgba(148, 163, 255, 0.25);
+  color: var(--ink-2);
+  font-size: 0.75rem;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+  box-shadow: var(--shadow-1);
+}
+
+.logo-chip::before {
+  content: "";
+  position: absolute;
+  bottom: 120%;
+  left: 50%;
+  transform: translateX(-50%);
+  border-width: 6px;
+  border-style: solid;
+  border-color: rgba(12, 16, 30, 0.95) transparent transparent transparent;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.logo-chip:hover::after,
+.logo-chip:hover::before {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
 
 @keyframes marquee {
   0% { transform: translateX(0); }
@@ -624,6 +667,15 @@ button {
 .carousel-track {
   display: flex;
   transition: transform 0.5s ease;
+  touch-action: pan-y;
+}
+
+.carousel {
+  cursor: grab;
+}
+
+.carousel:active {
+  cursor: grabbing;
 }
 
 .carousel-item {

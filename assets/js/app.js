@@ -86,6 +86,39 @@
       index = Math.min(index + 1, items.length - 1);
       update();
     });
+
+    let startX = 0;
+    let isPointerDown = false;
+
+    const onPointerDown = (event) => {
+      if (event.target.closest("button")) return;
+      isPointerDown = true;
+      startX = event.clientX;
+    };
+
+    const onPointerUp = (event) => {
+      if (!isPointerDown) return;
+      isPointerDown = false;
+      const diff = event.clientX - startX;
+      if (Math.abs(diff) < 40) return;
+      if (diff > 0) {
+        index = Math.max(index - 1, 0);
+      } else {
+        index = Math.min(index + 1, items.length - 1);
+      }
+      update();
+    };
+
+    carousel.addEventListener("pointerdown", onPointerDown);
+    carousel.addEventListener("pointerup", onPointerUp);
+    carousel.addEventListener("pointercancel", () => {
+      isPointerDown = false;
+    });
+    carousel.addEventListener("pointerleave", () => {
+      if (isPointerDown) {
+        isPointerDown = false;
+      }
+    });
   });
 
   const getCart = () => {
