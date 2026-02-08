@@ -1,17 +1,17 @@
 :root {
-  --ink-1: #0b1220;
-  --ink-2: #1b2336;
-  --ink-3: #4a5770;
+  --ink-1: #f5f7ff;
+  --ink-2: #d7dbee;
+  --ink-3: #9aa6c4;
   --brand-1: #1b2b5f;
   --brand-2: #4a2cff;
   --brand-3: #6b1fd6;
-  --surface: rgba(255, 255, 255, 0.86);
-  --surface-2: rgba(255, 255, 255, 0.72);
-  --surface-3: rgba(248, 250, 255, 0.9);
-  --border: rgba(15, 23, 42, 0.12);
-  --shadow-1: 0 16px 40px rgba(15, 23, 42, 0.15);
-  --shadow-2: 0 22px 60px rgba(15, 23, 42, 0.2);
-  --glow: 0 0 24px rgba(98, 76, 255, 0.35);
+  --surface: rgba(12, 16, 30, 0.86);
+  --surface-2: rgba(17, 22, 40, 0.76);
+  --surface-3: rgba(20, 26, 48, 0.9);
+  --border: rgba(148, 163, 255, 0.14);
+  --shadow-1: 0 16px 40px rgba(3, 8, 25, 0.45);
+  --shadow-2: 0 24px 60px rgba(3, 8, 25, 0.55);
+  --glow: 0 0 30px rgba(98, 76, 255, 0.5);
   --teal: #21b8a6;
   --amber: #f6b24f;
   --coral: #ff6a5b;
@@ -34,10 +34,10 @@ body {
   margin: 0;
   font-family: "Manrope", "Sora", system-ui, -apple-system, sans-serif;
   color: var(--ink-1);
-  background: #f7f8fc;
-  background-image: radial-gradient(circle at 10% 20%, rgba(74, 44, 255, 0.08), transparent 40%),
-    radial-gradient(circle at 90% 0%, rgba(33, 184, 166, 0.08), transparent 40%),
-    radial-gradient(circle at 50% 100%, rgba(107, 31, 214, 0.06), transparent 45%);
+  background: #0b0f1d;
+  background-image: radial-gradient(circle at 10% 20%, rgba(74, 44, 255, 0.18), transparent 42%),
+    radial-gradient(circle at 90% 0%, rgba(33, 184, 166, 0.14), transparent 45%),
+    radial-gradient(circle at 50% 100%, rgba(107, 31, 214, 0.12), transparent 50%);
   min-height: 100vh;
   overflow-x: hidden;
 }
@@ -103,8 +103,8 @@ button {
   gap: 8px;
   padding: 8px 14px;
   border-radius: 999px;
-  background: rgba(74, 44, 255, 0.08);
-  color: var(--brand-1);
+  background: rgba(74, 44, 255, 0.2);
+  color: var(--ink-1);
   font-weight: 600;
   font-size: 0.85rem;
   letter-spacing: 0.02em;
@@ -115,8 +115,8 @@ button {
   top: 0;
   z-index: 10;
   backdrop-filter: blur(18px);
-  background: rgba(255, 255, 255, 0.88);
-  border-bottom: 1px solid rgba(15, 23, 42, 0.08);
+  background: rgba(9, 13, 26, 0.88);
+  border-bottom: 1px solid rgba(148, 163, 255, 0.16);
 }
 
 .nav-wrap {
@@ -187,9 +187,9 @@ button {
 }
 
 .btn-ghost {
-  background: rgba(74, 44, 255, 0.08);
-  border: 1px solid rgba(74, 44, 255, 0.2);
-  color: var(--brand-1);
+  background: rgba(74, 44, 255, 0.18);
+  border: 1px solid rgba(98, 76, 255, 0.4);
+  color: var(--ink-1);
 }
 
 .btn-ghost:hover {
@@ -197,8 +197,9 @@ button {
 }
 
 .btn-outline {
-  border: 1px solid rgba(15, 23, 42, 0.14);
-  background: white;
+  border: 1px solid rgba(148, 163, 255, 0.24);
+  background: rgba(12, 16, 30, 0.6);
+  color: var(--ink-1);
 }
 
 .dropdown {
@@ -212,9 +213,9 @@ button {
   min-width: 260px;
   padding: 16px;
   border-radius: 18px;
-  background: rgba(255, 255, 255, 0.92);
+  background: rgba(12, 16, 30, 0.96);
   box-shadow: var(--shadow-1);
-  border: 1px solid rgba(15, 23, 42, 0.08);
+  border: 1px solid rgba(148, 163, 255, 0.16);
   display: grid;
   gap: 12px;
   opacity: 0;
@@ -285,7 +286,7 @@ button {
   padding: 16px;
   border-radius: 16px;
   background: var(--surface-2);
-  border: 1px solid rgba(15, 23, 42, 0.12);
+  border: 1px solid var(--border);
   box-shadow: var(--shadow-1);
 }
 
@@ -297,7 +298,7 @@ button {
   position: relative;
   padding: 24px;
   border-radius: 26px;
-  background: rgba(255, 255, 255, 0.8);
+  background: var(--surface);
   border: 1px solid transparent;
   box-shadow: var(--shadow-2);
   overflow: hidden;
@@ -322,31 +323,28 @@ button {
   gap: 18px;
 }
 
+.dashboard-metrics {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 12px;
+}
+
 .metric-floating {
-  position: absolute;
+  position: static;
   padding: 12px 16px;
   border-radius: 14px;
-  background: rgba(255, 255, 255, 0.94);
-  border: 1px solid rgba(15, 23, 42, 0.1);
+  background: var(--surface-2);
+  border: 1px solid var(--border);
   box-shadow: var(--shadow-1);
   font-weight: 600;
   animation: float 6s ease-in-out infinite;
 }
 
-.metric-floating:nth-child(1) {
-  top: -18px;
-  left: 10%;
-}
-
 .metric-floating:nth-child(2) {
-  bottom: -20px;
-  right: 8%;
   animation-delay: -2s;
 }
 
 .metric-floating:nth-child(3) {
-  top: 10%;
-  right: -20px;
   animation-delay: -4s;
 }
 
@@ -365,7 +363,7 @@ button {
   padding: 18px;
   border-radius: 16px;
   background: var(--surface-2);
-  border: 1px solid rgba(15, 23, 42, 0.12);
+  border: 1px solid var(--border);
   box-shadow: var(--shadow-1);
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
@@ -383,8 +381,8 @@ button {
 .logo-marquee {
   overflow: hidden;
   border-radius: 999px;
-  border: 1px solid rgba(15, 23, 42, 0.12);
-  background: rgba(255, 255, 255, 0.7);
+  border: 1px solid rgba(148, 163, 255, 0.2);
+  background: rgba(12, 16, 30, 0.7);
 }
 
 .logo-track {
@@ -394,8 +392,34 @@ button {
   animation: marquee 18s linear infinite;
   font-weight: 700;
   letter-spacing: 0.02em;
-  color: var(--ink-3);
+  color: var(--ink-2);
 }
+
+.logo-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  white-space: nowrap;
+}
+
+.logo-mark {
+  width: 26px;
+  height: 26px;
+  border-radius: 8px;
+  display: grid;
+  place-items: center;
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: white;
+}
+
+.logo-ms { background: linear-gradient(135deg, #2f6bff, #4a2cff); }
+.logo-gc { background: linear-gradient(135deg, #34a853, #1b9cff); }
+.logo-aws { background: linear-gradient(135deg, #ff9900, #ff5e2b); }
+.logo-cisco { background: linear-gradient(135deg, #22b0ff, #2471ff); }
+.logo-pmi { background: linear-gradient(135deg, #4a2cff, #8f4bff); }
+.logo-ai { background: linear-gradient(135deg, #21b8a6, #5ce1c8); }
+.logo-adopt { background: linear-gradient(135deg, #ff6a5b, #6b1fd6); }
 
 @keyframes marquee {
   0% { transform: translateX(0); }
@@ -412,7 +436,7 @@ button {
   padding: 22px;
   border-radius: var(--radius-md);
   background: var(--surface);
-  border: 1px solid rgba(15, 23, 42, 0.12);
+  border: 1px solid var(--border);
   box-shadow: var(--shadow-1);
   position: relative;
   overflow: hidden;
@@ -473,7 +497,7 @@ button {
   padding: 20px;
   border-radius: var(--radius-md);
   background: var(--surface-2);
-  border: 1px solid rgba(15, 23, 42, 0.12);
+  border: 1px solid var(--border);
   box-shadow: var(--shadow-1);
   display: grid;
   gap: 12px;
@@ -491,7 +515,7 @@ button {
 }
 
 .ring-bg {
-  stroke: rgba(15, 23, 42, 0.12);
+  stroke: rgba(148, 163, 255, 0.18);
   stroke-width: 8;
   fill: none;
 }
@@ -571,7 +595,7 @@ button {
   padding: 26px;
   border-radius: 22px;
   background: var(--surface);
-  border: 1px solid rgba(15, 23, 42, 0.12);
+  border: 1px solid var(--border);
   box-shadow: var(--shadow-1);
   transform-style: preserve-3d;
   transition: transform 0.3s ease, opacity 0.3s ease;
@@ -608,7 +632,7 @@ button {
   padding: 20px;
   background: var(--surface);
   border-radius: var(--radius-md);
-  border: 1px solid rgba(15, 23, 42, 0.12);
+  border: 1px solid var(--border);
   box-shadow: var(--shadow-1);
 }
 
@@ -622,9 +646,10 @@ button {
   width: 40px;
   height: 40px;
   border-radius: 50%;
-  border: 1px solid rgba(15, 23, 42, 0.14);
-  background: white;
+  border: 1px solid rgba(148, 163, 255, 0.24);
+  background: rgba(12, 16, 30, 0.8);
   cursor: pointer;
+  color: var(--ink-1);
 }
 
 .cards-grid {
@@ -761,8 +786,8 @@ button {
 .empty-state {
   padding: 24px;
   border-radius: 16px;
-  background: rgba(255, 255, 255, 0.7);
-  border: 1px dashed rgba(15, 23, 42, 0.2);
+  background: rgba(12, 16, 30, 0.7);
+  border: 1px dashed rgba(148, 163, 255, 0.22);
   color: var(--ink-3);
   text-align: center;
 }
@@ -771,7 +796,7 @@ button {
   padding: 20px;
   border-radius: var(--radius-md);
   background: var(--surface);
-  border: 1px solid rgba(15, 23, 42, 0.12);
+  border: 1px solid var(--border);
   box-shadow: var(--shadow-1);
   display: grid;
   gap: 12px;
@@ -809,7 +834,7 @@ button {
   background: var(--surface);
   border-radius: var(--radius-lg);
   padding: 32px;
-  border: 1px solid rgba(15, 23, 42, 0.12);
+  border: 1px solid var(--border);
   box-shadow: var(--shadow-1);
 }
 
@@ -827,13 +852,22 @@ select,
 textarea {
   padding: 12px 14px;
   border-radius: 12px;
-  border: 1px solid rgba(15, 23, 42, 0.14);
+  border: 1px solid rgba(148, 163, 255, 0.24);
   font-family: inherit;
   font-size: 1rem;
+  background: rgba(10, 14, 28, 0.8);
+  color: var(--ink-1);
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: rgba(201, 210, 236, 0.65);
 }
 
 footer {
   padding: 40px 0 60px;
+  background: #060914;
+  border-top: 1px solid rgba(148, 163, 255, 0.16);
 }
 
 .footer-grid {
